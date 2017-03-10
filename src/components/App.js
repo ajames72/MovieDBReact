@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './common/Header';
+import Search from './search/Search';
 
 
 class App extends React.Component {
@@ -7,6 +8,7 @@ class App extends React.Component {
     return (
       <div className="container-fluid">
         <Header />
+        <Search />
       </div>
     );
   }

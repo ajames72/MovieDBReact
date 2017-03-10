@@ -1,6 +1,8 @@
 import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
+import { Router, browserHistory } from 'react-router';
+import routes from './routes';
 import App from './components/App';
 
 //import '../node_modules/bootstrap/less/bootstrap.less';
@@ -14,6 +16,6 @@ import './style/MovieDB.less';
 //https://react-bootstrap.github.io/introduction.html
 
 render(
-  <App />,
+  <Router history={browserHistory} routes={routes} />,
   document.getElementById('app')
 );
