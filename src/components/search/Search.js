@@ -12,8 +12,11 @@ import SearchOptions from './searchoptions/SearchOptions';
 class Search extends React.Component {
   render() {
     return (
-      <div>
+      <div className="row">
         <SearchBox />
+        <header className="col-lg-12">
+          <h4>Search Options</h4>
+        </header>
         <SearchOptions />
       </div>
     );

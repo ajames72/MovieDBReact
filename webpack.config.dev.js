@@ -2,6 +2,10 @@ import webpack from 'webpack';
 // Package path from npm
 import path from 'path';
 
+const GLOBALS = {
+  'process.env.NODE_ENV': JSON.stringify('development')
+};
+
 export default {
   // dev tool option
   devtool: 'cheap-module-eval-source-map',
@@ -15,7 +19,6 @@ export default {
   target: 'web',
   // configuration for deployment of the webpack pundle
   output: {
-    //path: __dirname + '/dist', //Note: Physical files are only output by the production build task 'npm run build'
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
@@ -30,7 +33,8 @@ export default {
     new webpack.LoaderOptionsPlugin({
       //Whether loaders should be in debug mode or not. debug will be removed as of webpack 3.
       debug: true
-    })
+    }),
+    new webpack.DefinePlugin(GLOBALS)
   ],
   // Tell Webpacks the types of files we want to handle ... webapcks only knows how to handle js files natively
   module: {
