@@ -2,7 +2,7 @@ import express from 'express';
 import webpack from 'webpack';
 import path from 'path';
 import config from '../webpack.config.dev';
-import open from 'open';
+import opn from 'opn';
 
 /*eslint-disable no-console*/
 const port = 3000;
@@ -24,6 +24,7 @@ app.listen(port, function(error) {
   if(error) {
     console.log(error);
   } else {
-    open(`http://localhost:${port}`);
+    //open(`http://localhost:${port}`);
+    opn(`http://localhost:${port}`, {app: 'google chrome'});
   }
 });
