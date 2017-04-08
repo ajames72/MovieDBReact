@@ -1,1 +1,2 @@
 export const GET_ISO639_1_CODES = 'GET_ISO639_1_CODES';
+export const GET_ISO3166_1_CODES = 'GET_ISO3166_1_CODES';

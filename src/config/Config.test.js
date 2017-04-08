@@ -33,7 +33,7 @@ describe('The RESTful API Config', function() {
 
   it('should get the configuration ISO3166_1 codes', function() {
     expect(Config.getISO3166_1CodeSrc().url)
-      .toEqual("http://data.okfn.org/data/core/country-list/r/data.json");
+      .toEqual("http://localhost/MovieDB/data/core/country-list/r/data.php");
   });
 
   it('should use the GET method for the configuration ISO3166_1 codes', function() {

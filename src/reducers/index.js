@@ -1,11 +1,13 @@
 import {combineReducers} from 'redux';
-import languages from './SearchReducer';
+import languages from './LanguageReducer';
+import countries from './CountryReducer';
 
 /**
  * using ES6 shorthand property names
  */
 const rootReducer = combineReducers({
-  languages
+  languages,
+  countries
 });
 
 export default rootReducer;

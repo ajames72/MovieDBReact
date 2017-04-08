@@ -6,8 +6,8 @@ import expect from 'expect';
 import { shallow, render } from 'enzyme';
 import SearchOptions from './SearchOptions';
 
-describe('SearchOptions', function() {
-  describe('component structure', function() {
+describe('SearchOptions', () => {
+  describe('component structure', () => {
     //Fake Store and Middleware
     const middlewares = [ thunk ];
     const mockStore = configureStore(middlewares);
@@ -47,11 +47,31 @@ describe('SearchOptions', function() {
       }
     ];
 
-    it('should contain a SearchOptions wrapper', function() {
+    const countries = [
+      {
+        "Name": "Country_a",
+        "Code": "CA"
+      },
+      {
+        "Name": "Country_b",
+        "Code": "CB"
+      },
+      {
+        "Name": "Country_c",
+        "Code": "CC"
+      },
+      {
+        "Name": "Country_d",
+        "Code": "CD"
+      }
+    ];
+
+    it('should contain a SearchOptions wrapper', () => {
       //http://stackoverflow.com/questions/36211739/invariant-violation-could-not-find-store-in-either-the-context-or-props-of-c
       // Initialize mockstore with props
       const initialState = {
-        languages: languages
+        languages,
+        countries
       };
       const store = mockStore(initialState);
 

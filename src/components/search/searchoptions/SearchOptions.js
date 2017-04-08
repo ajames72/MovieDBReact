@@ -9,6 +9,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as searchActions from '../../../actions/SearchActions';
 import SearchOptionLanguages from './SearchOptionLanguages';
+import SearchOptionCountries from './SearchOptionCountries';
 
 class SearchOptions extends React.Component {
   constructor(props, context) {
@@ -20,6 +21,7 @@ class SearchOptions extends React.Component {
 
   render() {
     const {languages} = this.props;
+    const {countries} = this.props;
 
     return (
      <div className="tmdb-searchoptions col-lg-12">
@@ -33,6 +35,7 @@ class SearchOptions extends React.Component {
        </div>
        <div className="tmdb-searchoption col-lg-2" id="regionOpts">
          <label htmlFor="tmdb-search-option-region">Region</label>
+         <SearchOptionCountries countries={countries} />
        </div>
        <div className="tmdb-searchoption col-lg-2">
          <label htmlFor="tmdb-search-option-year">Year</label>
@@ -48,14 +51,16 @@ class SearchOptions extends React.Component {
 }
 
 SearchOptions.propTypes = {
-  languages: PropTypes.array.isRequired
+  languages: PropTypes.array.isRequired,
+  countries: PropTypes.array.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
   //Access data in the Redux store
   //state.languages property is defined in the reducer (rootReducer)
   return {
-    languages: state.languages
+    languages: state.languages,
+    countries: state.countries
   };
 }
 

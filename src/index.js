@@ -2,7 +2,7 @@ import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
 import ConfigureStore from './store/ConfigureStore';
-import { loadLanguageOptions } from './actions/SearchActions';
+import { loadLanguageOptions, loadCountryOptions } from './actions/SearchActions';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import routes from './routes';
@@ -18,7 +18,9 @@ import './style/MovieDB.less';
 //https://react-bootstrap.github.io/introduction.html
 
 const store = ConfigureStore();
+//Should go in the component?
 store.dispatch(loadLanguageOptions());
+store.dispatch(loadCountryOptions());
 
 render(
   <Provider store={store}>
