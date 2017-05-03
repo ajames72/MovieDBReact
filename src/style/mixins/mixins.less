@@ -1,0 +1,13 @@
+.gradient-background-vendor-prefixes(@from-colour, @to-colour) {
+  background: linear-gradient(90deg, @from-colour 0%, @to-colour 50%, @from-colour 100%);
+	background: -webkit-linear-gradient(90deg, @from-colour 0%, @to-colour 50%, @from-colour 100%);
+	background: -ms-linear-gradient(90deg, @from-colour 0%, @to-colour 50%, @from-colour 100%);
+	background: -o-linear-gradient(90deg, @from-colour 0%, @to-colour 50%, @from-colour 100%);
+	background: -moz-linear-gradient(90deg, @from-colour 0%, @to-colour 50%, @from-colour 100%);
+}
+
+.border-radius(@r) {
+  -webkit-border-radius: @r;
+  -moz-border-radius: @r;
+  border-radius: @r;
+}

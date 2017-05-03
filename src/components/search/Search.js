@@ -14,7 +14,7 @@ class Search extends React.Component {
     return (
       <div className="row">
         <SearchBox />
-        <header className="col-lg-12">
+        <header className="col-lg-8 col-lg-offset-1">
           <h4>Search Options</h4>
         </header>
         <SearchOptions />
