@@ -54,4 +54,37 @@ describe('SearchActions', () => {
     });
   });
 
+  describe('movie search', () => {
+    let mockResponse = {
+      "page": 1,
+      "results": [],
+      "total_results": 10,
+      "total_pages": 10
+    };
+
+    let mockQuery = {
+      query: "Search Term",
+      include_adult: 'true',
+      language: 'aa',
+      region: 'AS',
+      year: '1999',
+      primary_release_year: '2000'
+    };
+
+    const expectedAction = {
+      type: types.SEARCH_MOVIES, results: mockResponse
+    };
+
+    let scope = nock('http://localhost')
+      .get('/3/search/movie?api_key=df3908a9e93ea4fa095429a46c0eec66&query=Search%20Term&include_adult=true&language=aa&region=AS&year=1999&primary_release_year=2000')
+      .reply(200, mockResponse);
+
+
+    it('should call the search movie API', () => {
+      return store.dispatch(SearchActions.movieSearch(mockQuery)).then(() => {
+        const actions = store.getActions();
+        expect(actions[2]).toEqual(expectedAction);
+      });
+    });
+  });
 });

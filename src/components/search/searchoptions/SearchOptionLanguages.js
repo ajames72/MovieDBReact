@@ -9,20 +9,21 @@ import React, {PropTypes} from 'react';
 class SearchOptionLanguages extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: 'any'};
+    this.state = {language: 'any'};
 
-    this.handleChange = this.handleChange.bind(this);
+    //this.handleChange = this.handleChange.bind(this);
   }
-
+  /*
   handleChange(event) {
-    this.setState({value: event.target.value});
+    this.setState({language: event.target.value});
   }
-
+  */
   render() {
     const {languages} = this.props;
+    const {setLanguage} = this.props;
 
     return (
-      <select defaultValue={this.state.value} onChange={this.handleChange} className="tmdb-search-option" id="tmdb-search-option-language" name="tmdb-search-option-language">
+      <select defaultValue={this.state.language} onChange={setLanguage} className="tmdb-search-option" id="tmdb-search-option-language" name="tmdb-search-option-language">
         <option value="any">any</option>
         {
           languages.map(
@@ -53,7 +54,8 @@ const SearchOptionLanguages = ({languages}) => {
 };
 */
 SearchOptionLanguages.propTypes = {
-  languages: PropTypes.array.isRequired
+  languages: PropTypes.array.isRequired,
+  setLanguage: PropTypes.func.isRequired
 };
 
 export default SearchOptionLanguages;

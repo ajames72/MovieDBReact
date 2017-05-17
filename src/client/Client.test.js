@@ -42,3 +42,38 @@ describe('Get ISO3166_1 Codes', () => {
     });
   });
 });
+
+describe('Search Movie API', () => {
+
+  let fakeServer, spyCallback;
+
+  let mockResponse = {
+    "page": 1,
+    "results": [],
+    "total_results": 10,
+    "total_pages": 10
+  };
+
+  let mockQuery = {
+    query: "Search Term",
+    include_adult: 'true',
+    language: 'aa',
+    region: 'AS',
+    year: '1999',
+    primary_release_year: '2000'
+  };
+
+  nock.disableNetConnect();
+
+  let scope = nock('http://localhost')
+    .get('/3/search/movie?api_key=123456&query=Search%20Term&include_adult=true&language=aa&region=AS&year=1999&primary_release_year=2000')
+    .reply(200, mockResponse);
+
+  it('should return a response for the movie API', () => {
+    rest.searchMovies(mockQuery).then((response) => {
+      expect(response).toEqual(mockResponse);
+    }).catch((error) => {
+
+    });
+  });
+});

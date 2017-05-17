@@ -86,7 +86,7 @@ export function getISO639_1Codes() {
  */
 export function getISO3166_1Codes() {
   let config = Config.getISO3166_1CodeSrc();
-  console.log(config);
+
   return fetch(config.url, {method: config.method}).then((response) => {
     switch(response.status) {
       case 200:
@@ -97,5 +97,50 @@ export function getISO3166_1Codes() {
   }).catch((error) => {
     return defaultCountries;
   });
+}
 
+function setSearchMoviesParamString(params) {
+
+  let paramStr = '';
+
+  Object.keys(params).map((key, index) => {
+    if(Object.prototype.hasOwnProperty.call(params,key)) {
+
+      if(index < Object.keys(params).length) {
+        paramStr += '&';
+      }
+
+      paramStr += `${key}=${encodeURI(params[key])}`;
+    }
+
+  });
+  return paramStr;
+}
+
+export function searchMovies(params) {
+
+  let myHeaders = new Headers();
+
+  myHeaders.append('Content-Type', 'application/json');
+
+  let config = Config.getSearchAPI();
+
+  let requestString = setSearchMoviesParamString(params);
+
+  let url = config.url.concat(requestString);
+
+  return fetch(url, {method: config.method, headers: myHeaders}).then((response) => {
+    switch (response.status) {
+      case 200:
+        return response.json();
+      case 401:
+      case 404:
+      case 422:
+      default:
+        return {status: response.status, errorResponse: JSON.parse(response)};
+
+    }
+  }).catch((error) => {
+
+  });
 }

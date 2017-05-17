@@ -9,19 +9,21 @@ import React, {PropTypes} from 'react';
 class SearchOptionCountries extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: 'any'};
+    this.state = {country: 'any'};
 
-    this.handleChange = this.handleChange.bind(this);
+    //this.handleChange = this.handleChange.bind(this);
   }
-
+/*
   handleChange(event) {
-    this.setState({value: event.target.value});
+    this.setState({country: event.target.value});
   }
-
+*/
   render() {
     const {countries} = this.props;
+    const {setCountry} = this.props;
+
     return (
-      <select defaultValue={this.state.value} onChange={this.handleChange} className="tmdb-search-option" id="tmdb-search-option-country" name="tmdb-search-option-country">
+      <select defaultValue={this.state.country} onChange={setCountry} className="tmdb-search-option" id="tmdb-search-option-country" name="tmdb-search-option-country">
         <option value="any">any</option>
         {
           countries.map(
@@ -36,7 +38,8 @@ class SearchOptionCountries extends React.Component {
 }
 
 SearchOptionCountries.propTypes = {
-  countries: PropTypes.array.isRequired
+  countries: PropTypes.array.isRequired,
+  setCountry: PropTypes.func.isRequired
 };
 
 export default SearchOptionCountries;

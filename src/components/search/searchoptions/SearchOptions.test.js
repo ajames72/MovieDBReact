@@ -75,8 +75,38 @@ describe('SearchOptions', () => {
       };
       const store = mockStore(initialState);
 
+      const setSearchTerm = () => {
+
+      };
+
+      const setAdultFlag = () => {
+
+      };
+
+      const setCountry = () => {
+
+      };
+
+      const setLanguage = () => {
+
+      };
+
+      const setYear = () => {
+
+      };
+
+      const setPrimaryReleaseYear = () => {
+
+      };
+
       //let searchOptions = shallow(<SearchOptions />);
-      let searchOptions = render(<Provider store={store}><SearchOptions /></Provider>);
+      let searchOptions = render(<Provider store={store}><SearchOptions
+        setAdultFlag={setAdultFlag}
+        setCountry={setCountry}
+        setLanguage={setLanguage}
+        setYear={setYear}
+        setPrimaryReleaseYear={setPrimaryReleaseYear}
+      /></Provider>);
       expect(searchOptions.find('.tmdb-searchoptions').length).toEqual(1);
       //expect(true).toBeTruthy();
     });

@@ -10,7 +10,7 @@ import environment from '../environments/environment';
 "use strict";
 
 //Private properties
-const API_KEY = "df3908a9e93ea4fa095429a46c0eec66";
+const API_KEY = 'df3908a9e93ea4fa095429a46c0eec66';
 
 const Config = {
   /**
@@ -18,9 +18,9 @@ const Config = {
    * @param none
    * @returns {object} - the URL and HTTP Method
    */
-  getSearchAPI: function() {
+  getSearchAPI: function getSearchAPI() {
     return {
-      url: environment.endpoints.SEARCH_API + API_KEY + "&query=",
+      url: environment.endpoints.SEARCH_API + API_KEY,
       method: "GET"
     };
   },
@@ -29,7 +29,7 @@ const Config = {
    * @param none
    * @returns {object} - the URL and HTTP Method
    */
-  getTMDBConfigurationAPI: function() {
+  getTMDBConfigurationAPI: function getTMDBConfigurationAPI() {
     return {
       url: environment.endpoints.CONFIGURATION_API + API_KEY,
       method: "GET"
@@ -45,7 +45,7 @@ const Config = {
    * @param none
    * @returns {object} - the URL and HTTP Method
    */
-  getISO639_1CodeSrc: function() {
+  getISO639_1CodeSrc: function getISO639_1CodeSrc() {
     return {
       url: environment.endpoints.ISO639_1_SRC,
       method: "GET"
@@ -56,7 +56,7 @@ const Config = {
    * @param none
    * @returns {object} - the URL and HTTP Method
    */
-  getISO3166_1CodeSrc: function() {
+  getISO3166_1CodeSrc: function getISO3166_1CodeSrc() {
     return {
       url: environment.endpoints.ISO3166_1_SRC,
       method: "GET"
