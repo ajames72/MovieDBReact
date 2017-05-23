@@ -35,8 +35,8 @@ class Search extends React.Component {
   }
 
   setSearchTerm(event) {
-    let searchTerm = event.target.value;
-    this.setState({searchTerm: searchTerm});
+    let query = event.target.value;
+    this.setState({query: query});
   }
 
   setAdultFlag(event) {
@@ -66,7 +66,7 @@ class Search extends React.Component {
 
   search(event) {
     event.preventDefault();
-    console.log('sendSearch', this.state);
+    this.props.actions.movieSearch(this.state);
   }
 
   render() {
@@ -76,7 +76,7 @@ class Search extends React.Component {
     return (
       <div className="row">
         <SearchBox onSubmit={this.search} onChange={this.setSearchTerm}/>
-        <header className="col-lg-8 col-lg-offset-1">
+        <header className="col-lg-12">
           <h4>Search Options</h4>
         </header>
         <SearchOptions
@@ -95,7 +95,8 @@ class Search extends React.Component {
 
 Search.propTypes = {
   languages: PropTypes.array.isRequired,
-  countries: PropTypes.array.isRequired
+  countries: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {

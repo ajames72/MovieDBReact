@@ -99,21 +99,35 @@ export function getISO3166_1Codes() {
   });
 }
 
-function setSearchMoviesParamString(params) {
+function validParam(key, value) {
+
+  if(
+    (!value) ||
+    (value.length === 0) ||
+    ((key === 'language') && (value === 'any')) ||
+    ((key === 'region') && (value === 'any'))
+  ) {
+    return false;
+  }
+
+  return true;
+}
+
+export function setSearchMoviesParamString(params) {
 
   let paramStr = '';
 
   Object.keys(params).map((key, index) => {
-    if(Object.prototype.hasOwnProperty.call(params,key)) {
-
-      if(index < Object.keys(params).length) {
-        paramStr += '&';
-      }
-
-      paramStr += `${key}=${encodeURI(params[key])}`;
+    if(Object.prototype.hasOwnProperty.call(params,key) && validParam(key, params[key])) {
+        /*
+        if(index < Object.keys(params).length) {
+          paramStr += '&';
+        }
+        */
+        paramStr += `&${key}=${encodeURI(params[key])}`;
     }
-
   });
+
   return paramStr;
 }
 

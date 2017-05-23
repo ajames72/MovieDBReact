@@ -27,25 +27,39 @@ class SearchOptions extends React.Component {
     return (
       <div className="col-lg-12">
         <div className="tmdb-searchoptions">
-          <div className="tmdb-searchoption">
-            <label htmlFor="tmdb-search-option-adult">Adult</label>
-            <input type="checkbox" className="tmdb-searchoption__field" id="tmdb-search-option-adult" name="tmdb-search-option-adult" onChange={setAdultFlag} />
+          <div className="tmdb-searchoption__tr">
+            <div className="tmdb-searchoption__td">
+              <label htmlFor="tmdb-search-option-adult">Adult</label>
+            </div>
+            <div className="tmdb-searchoption__td">
+              <label htmlFor="tmdb-search-option-language">Language</label>
+            </div>
+            <div className="tmdb-searchoption__td">
+              <label htmlFor="tmdb-search-option-region">Region</label>
+            </div>
+            <div className="tmdb-searchoption__td">
+              <label htmlFor="tmdb-search-option-year">Year</label>
+            </div>
+            <div className="tmdb-searchoption__td">
+              <label htmlFor="tmdb-search-option-primary">Primary Release Year</label>
+            </div>
           </div>
-          <div className="tmdb-searchoption" id="langOpts">
-            <label htmlFor="tmdb-search-option-language">Language</label>
-            <SearchOptionLanguages languages={languages} setLanguage={setLanguage} />
-          </div>
-          <div className="tmdb-searchoption" id="regionOpts">
-            <label htmlFor="tmdb-search-option-region">Region</label>
-            <SearchOptionCountries countries={countries} setCountry={setCountry} />
-          </div>
-          <div className="tmdb-searchoption">
-            <label htmlFor="tmdb-search-option-year">Year</label>
-            <input type="number" className="tmdb-searchoption__field" id="tmdb-search-option-year" name="tmdb-search-option-year" max="2017" onChange={setYear} />
-          </div>
-          <div className="tmdb-searchoption">
-            <label htmlFor="tmdb-search-option-primary">Primary Release Year</label>
-            <input type="number" className="tmdb-searchoption__field" id="tmdb-search-option-primary" name="tmdb-search-option-primary" max="2017" onChange={setPrimaryReleaseYear} />
+          <div className="tmdb-searchoption__tr">
+            <div className="tmdb-searchoption__td">
+              <input type="checkbox" className="tmdb-searchoption__field" id="tmdb-search-option-adult" name="tmdb-search-option-adult" onChange={setAdultFlag} />
+            </div>
+            <div className="tmdb-searchoption__td" id="langOpts">
+              <SearchOptionLanguages languages={languages} setLanguage={setLanguage} />
+            </div>
+            <div className="tmdb-searchoption__td" id="regionOpts">
+              <SearchOptionCountries countries={countries} setCountry={setCountry} />
+            </div>
+            <div className="tmdb-searchoption__td">
+              <input type="number" className="tmdb-searchoption__field" id="tmdb-search-option-year" name="tmdb-search-option-year" max="2017" onChange={setYear} />
+            </div>
+            <div className="tmdb-searchoption__td">
+              <input type="number" className="tmdb-searchoption__field" id="tmdb-search-option-primary" name="tmdb-search-option-primary" max="2017" onChange={setPrimaryReleaseYear} />
+            </div>
           </div>
         </div>
       </div>
