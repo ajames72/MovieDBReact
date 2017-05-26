@@ -16,8 +16,8 @@ import './style/MovieDB.less';
 //import '../node_modules/bootstrap/dist/js/bootstrap.min';
 //Consider
 //https://react-bootstrap.github.io/introduction.html
-
 const store = ConfigureStore();
+
 //Should go in the component?
 store.dispatch(loadLanguageOptions());
 store.dispatch(loadCountryOptions());

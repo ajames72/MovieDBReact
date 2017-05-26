@@ -108,7 +108,6 @@ describe('Search Movie API', () => {
   });
 
   describe('API call', () => {
-    let fakeServer, spyCallback;
 
     let mockResponse = {
       "page": 1,
@@ -140,6 +139,4 @@ describe('Search Movie API', () => {
       });
     });
   });
-
-
 });

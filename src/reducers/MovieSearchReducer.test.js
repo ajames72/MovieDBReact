@@ -3,7 +3,9 @@ import MovieSearchReducer from './MovieSearchReducer';
 import * as types from '../actions/ActionTypes';
 import * as SearchActions from '../actions/SearchActions';
 
-const initialState = [];
+const initialState = {
+  results: []
+};
 
 const results = {
   "page": 1,

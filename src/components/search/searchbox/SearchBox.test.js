@@ -22,4 +22,7 @@ describe('SearchBox', function() {
     let searchBox = shallow(<SearchBox onSubmit={mockOnSubmitProp} onChange={mockOnChangeProp} />);
     expect(searchBox.find('#submit').length).toEqual(1);
   });
+
+  //Simulate onChange event
+  //https://github.com/airbnb/enzyme/blob/master/docs/api/ReactWrapper/simulate.md
 });

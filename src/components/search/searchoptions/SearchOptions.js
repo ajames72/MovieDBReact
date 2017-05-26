@@ -70,7 +70,7 @@ class SearchOptions extends React.Component {
 SearchOptions.defaultProps = {
   languages: [],
   countries: []
-}
+};
 
 SearchOptions.propTypes = {
   languages: PropTypes.array.isRequired,
