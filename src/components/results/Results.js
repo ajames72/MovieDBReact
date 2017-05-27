@@ -15,7 +15,7 @@ class Results extends React.Component {
     super(props);
 
     this.state = {
-      results: {}
+      results: []
     };
   }
 

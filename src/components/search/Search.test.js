@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import expect from 'expect';
-import { shallow, render } from 'enzyme';
+import { shallow, render, mount } from 'enzyme';
 import Search from './Search';
 
 describe('Search component', () => {
@@ -35,7 +35,7 @@ describe('Search component', () => {
 
       const store = mockStore(initialState);
 
-      let search = render(
+      let search = mount(
         <Provider store={store}>
           <Search />
         </Provider>
@@ -45,10 +45,10 @@ describe('Search component', () => {
     });
 
     it('should contain a SearchOptions component', () => {
-      
+
       const store = mockStore(initialState);
 
-      let search = render(
+      let search = mount(
         <Provider store={store}>
           <Search />
         </Provider>
