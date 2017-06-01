@@ -15,12 +15,22 @@ describe('Results', () => {
     "total_pages": 0
   };
 
+  const config = {
+    images: {
+      base_url: '',
+      poster_sizes: [
+        "w92"
+      ]
+    }
+  };
+
   describe('component structure', () => {
     //Fake Store and Middleware
     const middlewares = [ thunk ];
     const mockStore = configureStore(middlewares);
     const initialState = {
-      movies
+      movies,
+      config
     };
 
     it('should contain a MovieResults component', () => {

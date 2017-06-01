@@ -10,14 +10,8 @@ class SearchOptionCountries extends React.Component {
   constructor(props) {
     super(props);
     this.state = {country: 'any'};
+  }
 
-    //this.handleChange = this.handleChange.bind(this);
-  }
-/*
-  handleChange(event) {
-    this.setState({country: event.target.value});
-  }
-*/
   render() {
     const {countries} = this.props;
     const {setCountry} = this.props;

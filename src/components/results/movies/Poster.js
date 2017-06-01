@@ -7,14 +7,15 @@
 
 import React, {PropTypes} from 'react';
 
-const Poster = () => {
+const Poster = ({src, alt}) => {
   return (
-    <div>Poster</div>
+  <img src={src} alt={alt} />
   );
 };
 
 Poster.propTypes = {
-
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired
 };
 
 export default Poster;

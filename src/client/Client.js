@@ -61,7 +61,7 @@ const defaultCountries = [
   }
 ];
 /**
- * @description -
+ * @description - Gets a list of ISO639_1 language codes
  * @param none
  * @returns {object} - ISO639_1 language codes
  */
@@ -80,7 +80,7 @@ export function getISO639_1Codes() {
   });
 }
 /**
- * @description -
+ * @description - Gets a list of ISO3166_1 country codes
  * @param none
  * @returns {object} - ISO3166_1 country codes
  */
@@ -99,6 +99,12 @@ export function getISO3166_1Codes() {
   });
 }
 
+/**
+ * @description - private helper function that validates whether a key/value pair should be used in the search parameter string
+ * @param {string} key - parameter key
+ * @param {string} value - parameter value
+ * @returns {boolean} - true if the key/value can be used in the parameter string
+ */
 function validParam(key, value) {
 
   if(
@@ -156,5 +162,22 @@ export function searchMovies(params) {
     }
   }).catch((error) => {
 
+  });
+}
+
+export function getTMDBApiConfiguration() {
+  let myHeaders = new Headers();
+
+  myHeaders.append('Content-Type', 'application/json');
+
+  let config = Config.getTMDBApiConfiguration();
+
+  return fetch(config.url, {method: config.method, headers: myHeaders}).then((response) => {
+    switch(response.status) {
+      case 200:
+        return response.json();
+      default:
+        return {status: response.status, errorResponse: JSON.parse(response)};
+    }
   });
 }

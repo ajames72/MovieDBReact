@@ -8,12 +8,15 @@ import React, {PropTypes} from 'react';
 
 import Movie from './Movie';
 
-const MovieResults = ({movies}) => {
+const MovieResults = ({movies, config}) => {
+
+  const path = config.images.base_url + config.images.poster_sizes[0];
+
   return (
     <div className="row">
       <div className="col-lg-12">
         {
-          movies.results.map((result, index) => <div key={index} className="tmdb-movie">Movie {index}</div>)
+          movies.results.map((result, index) => <div key={index} className="tmdb-movie"><Movie src={path + result.poster_path} alt={result.original_title}/></div>)
         }
       </div>
     </div>
@@ -21,7 +24,8 @@ const MovieResults = ({movies}) => {
 };
 
 MovieResults.propTypes = {
-  movies: PropTypes.object.isRequired
+  movies: PropTypes.object.isRequired,
+  config: PropTypes.object.isRequired
 };
 
 export default MovieResults;

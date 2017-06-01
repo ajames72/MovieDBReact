@@ -14,12 +14,12 @@ describe('The RESTful API Config', function() {
   });
 
   it('should get the configuration RESTful API', function() {
-    expect(Config.getTMDBConfigurationAPI().url)
-      .toEqual("https://api.themoviedb.org/3/configuration?api_key=df3908a9e93ea4fa095429a46c0eec66");
+    expect(Config.getTMDBApiConfiguration().url)
+      .toEqual("https://localhost/3/configuration?api_key=df3908a9e93ea4fa095429a46c0eec66");
   });
 
   it('should use the GET method for the configuration RESTful API', function() {
-    expect(Config.getTMDBConfigurationAPI().method).toEqual('GET');
+    expect(Config.getTMDBApiConfiguration().method).toEqual('GET');
   });
 
   it('should get the configuration for ISO639_1 codes', function() {

@@ -29,9 +29,9 @@ const Config = {
    * @param none
    * @returns {object} - the URL and HTTP Method
    */
-  getTMDBConfigurationAPI: function getTMDBConfigurationAPI() {
+  getTMDBApiConfiguration: function getTMDBApiConfiguration() {
     return {
-      url: environment.endpoints.CONFIGURATION_API + API_KEY,
+      url: environment.endpoints.TMDB_CONFIGURATION_API + API_KEY,
       method: "GET"
     };
   },

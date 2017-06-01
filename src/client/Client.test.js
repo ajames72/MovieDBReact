@@ -140,3 +140,31 @@ describe('Search Movie API', () => {
     });
   });
 });
+
+describe('TMDB configuration', () => {
+  let mockResponse = TestData.tmdb_configuration;
+
+  nock.disableNetConnect();
+
+  let scope = nock('https://localhost')
+    .get('/3/configuration?api_key=df3908a9e93ea4fa095429a46c0eec66')
+    .reply(200, mockResponse);
+
+  it('should return a response for the configuration API', () => {
+    rest.getTMDBApiConfiguration().then((response) => {
+      expect(response).toEqual(mockResponse);
+    }).catch((error) => {
+
+    });
+  });
+
+  it('should get the base url for images', () => {
+    const expectedResult = 'http://image.tmdb.org/t/p/';
+
+    rest.getTMDBApiConfiguration().then((response) => {
+      expect(response.images.base_url).toEqual(expectedResult);
+    }).catch((error) => {
+
+    });
+  });
+});

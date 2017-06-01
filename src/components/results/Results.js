@@ -24,7 +24,8 @@ class Results extends React.Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    movies: state.movies
+    movies: state.movies,
+    config: state.config
   };
 }
 

@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import expect from 'expect';
-import { shallow, render, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import Search from './Search';
 
 describe('Search component', () => {

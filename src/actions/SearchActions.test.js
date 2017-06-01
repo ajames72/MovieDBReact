@@ -6,6 +6,8 @@ import * as types from './ActionTypes';
 import * as SearchActions from './SearchActions';
 import * as TestData from '../../test/TestData';
 
+
+
 describe('SearchActions', () => {
 
   nock.disableNetConnect();
@@ -86,5 +88,25 @@ describe('SearchActions', () => {
         expect(actions[2]).toEqual(expectedAction);
       });
     });
+  });
+
+  describe('loadTMDBApiConfiguration', () => {
+    const expectedAction = {
+      type: types.GET_TMDB_CONFIGURATION, config: TestData.tmdb_configuration
+    };
+
+    let scope = nock('https://localhost')
+      .get('/3/configuration?api_key=df3908a9e93ea4fa095429a46c0eec66')
+      .reply(200, TestData.tmdb_configuration);
+
+    it('should create an action to load the configuration', () => {
+      store.dispatch(SearchActions.loadTMDBApiConfiguration()).then(() => {
+        const actions = store.getActions();
+        expect(actions[3]).toEqual(expectedAction);
+      }, (error) => {
+
+      });
+    });
+
   });
 });

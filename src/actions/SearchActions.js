@@ -1,6 +1,20 @@
 import * as types from './ActionTypes';
 import * as rest from '../client/Client';
 
+export function loadTMDBApiConfiguration() {
+  return function dispatchTMDBApiConfiguration(dispatch) {
+    return rest.getTMDBApiConfiguration().then((response) => {
+      dispatch(loadTMDBApiConfigurationSuccess(response));
+    });
+  };
+}
+
+export function loadTMDBApiConfigurationSuccess(config) {
+  return {
+    type: types.GET_TMDB_CONFIGURATION, config
+  };
+}
+
 export function loadLanguageOptions() {
   return function dispatchLanguageOptions(dispatch) {
     return rest.getISO639_1Codes().then(response => {
