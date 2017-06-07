@@ -14,6 +14,11 @@ import * as searchActions from '../../actions/SearchActions';
 
 class Search extends React.Component {
 
+  componentWillMount() {
+    this.props.actions.loadLanguageOptions();
+    this.props.actions.loadCountryOptions();
+  }
+
   constructor(props) {
     super(props);
 

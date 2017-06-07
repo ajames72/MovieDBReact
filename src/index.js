@@ -18,10 +18,8 @@ import './style/MovieDB.less';
 //https://react-bootstrap.github.io/introduction.html
 const store = ConfigureStore();
 
-//Should go in the component?
+//Load API configuration because it's used across components
 store.dispatch(loadTMDBApiConfiguration());
-store.dispatch(loadLanguageOptions());
-store.dispatch(loadCountryOptions());
 
 render(
   <Provider store={store}>
