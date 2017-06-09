@@ -14,11 +14,6 @@ import * as searchActions from '../../actions/SearchActions';
 
 class Search extends React.Component {
 
-  componentWillMount() {
-    this.props.actions.loadLanguageOptions();
-    this.props.actions.loadCountryOptions();
-  }
-
   constructor(props) {
     super(props);
 
@@ -37,6 +32,11 @@ class Search extends React.Component {
       year: '',
       primary_release_year: ''
     };
+  }
+
+  componentWillMount() {
+    this.props.actions.loadLanguageOptions();
+    this.props.actions.loadCountryOptions();
   }
 
   setSearchTerm(event) {
