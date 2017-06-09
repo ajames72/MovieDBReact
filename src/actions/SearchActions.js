@@ -50,7 +50,17 @@ export function loadCountryOptionsSuccess(countries) {
 export function movieSearch(params) {
   return function dispatchMovieSearch(dispatch) {
     return rest.searchMovies(params).then(response => {
-      dispatch(movieSearchSuccess(response));
+      //Filter the data and keep only what we need in the store
+      let searchResults = response.results.reduce((filteredResults, currentResult, index) => {
+        filteredResults[index] = {
+          poster_path: currentResult['poster_path'],
+          original_title: currentResult['original_title']
+        };
+
+        return filteredResults;
+      }, []);
+
+      dispatch(movieSearchSuccess(Object.assign({}, {results: searchResults})));
     }, error => {
 
     });

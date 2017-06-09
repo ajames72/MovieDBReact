@@ -7,7 +7,7 @@ const initialState = {
       "w92"
     ]
   }
-}
+};
 /**
  * @description Movie Search API configuration Reducer
  * @param {object} state - response from the /configuration resource

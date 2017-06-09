@@ -57,11 +57,9 @@ describe('SearchActions', () => {
   });
 
   describe('movie search', () => {
+    
     let mockResponse = {
-      "page": 1,
-      "results": [],
-      "total_results": 10,
-      "total_pages": 10
+      "results": []
     };
 
     let mockQuery = {
