@@ -11,12 +11,9 @@
 
 /* block */
 .tmdb-result {
-
 	display: block;
 	width: auto;
 	margin: 0 7%;
-
-
 }
 
 /* block */
@@ -26,7 +23,6 @@
 
   /* block__element */
   > .tmdb-movie__image {
-
     display: inline-block;
     background-color: @posterBgColor;
     width: @poster_width_base + (@poster_padding_base * 2);
@@ -42,4 +38,31 @@
       border: 1px solid black;
     }
   }
+
+	/* block__element */
+	> .tmdb-movie__title {
+		width: @poster_width_base + (@poster_padding_base * 2);
+		padding: 0 @poster_padding_base;
+		height: 50px;
+		overflow: hidden;
+		display: block;
+
+		.tmdb-movie__tooltip {
+			visibility: hidden;
+	    width: 120px;
+	    background-color: @off-white;
+	    color: @near-black;
+	    text-align: center;
+	    border-radius: 3px;
+	    padding: 5px 0;
+
+	    /* Position the tooltip */
+	    position: absolute;
+	    z-index: 1;
+		}
+	}
+
+	> .tmdb-movie__title:hover .tmdb-movie__tooltip {
+		visibility: visible;
+	}
 }
