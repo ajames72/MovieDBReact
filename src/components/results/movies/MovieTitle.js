@@ -9,7 +9,9 @@ import React, {PropTypes} from 'react';
 
 const MovieTitle = ({title}) => {
   return (
-    <div className="tmdb-movie__title"><span className="title">{title}</span><span className="tmdb-movie__tooltip">{title}</span></div>
+    <div className="tmdb-movie__title">
+      <span className="tmdb-movie__title-text">{title}</span><span className="tmdb-movie__tooltip">{title}</span>
+    </div>
   );
 };
 

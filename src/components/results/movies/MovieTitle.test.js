@@ -17,7 +17,7 @@ describe('MovieTitle', () => {
     it('should contain title text', () => {
       let movieTitle = shallow(<MovieTitle title={title} />);
 
-      expect(movieTitle.find('.title').text()).toEqual(title);
+      expect(movieTitle.find('.tmdb-movie__title-text').text()).toEqual(title);
     });
 
     it('should contain a tooltip', () => {
