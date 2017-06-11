@@ -8,7 +8,7 @@ class Header extends React.Component {
         <nav className="navbar navbar-default">
           <ul className="nav navbar-nav">
             <li className="active">
-              <a href="#">Movies</a>
+              <Link to="movies">Movies</Link>
             </li>
             <li>
               <a href="#">Collections</a>
