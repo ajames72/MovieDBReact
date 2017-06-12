@@ -14,7 +14,7 @@ const MovieSearch = ({actions}) => {
   return (
     <div className="row">
       <div className="col-lg-12">
-      <Search search={actions.movieSearch}/>
+        <Search search={actions.movieSearch}/>
       <Results />
       </div>
     </div>

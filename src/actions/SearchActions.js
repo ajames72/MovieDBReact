@@ -2,7 +2,9 @@ import * as types from './ActionTypes';
 import * as rest from '../client/Client';
 
 export function loadTMDBApiConfiguration() {
+  //Thunk - returns a function instead of an action
   return function dispatchTMDBApiConfiguration(dispatch) {
+    //Thunk body
     return rest.getTMDBApiConfiguration().then((response) => {
       dispatch(loadTMDBApiConfigurationSuccess(response));
     });
