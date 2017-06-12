@@ -18,9 +18,9 @@ const Config = {
    * @param none
    * @returns {object} - the URL and HTTP Method
    */
-  getSearchAPI: function getSearchAPI() {
+  getMovieSearchAPI: function getMovieSearchAPI() {
     return {
-      url: environment.endpoints.SEARCH_API + API_KEY,
+      url: environment.endpoints.MOVIE_SEARCH_API + API_KEY,
       method: "GET"
     };
   },

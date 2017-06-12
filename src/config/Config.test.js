@@ -5,12 +5,12 @@ import expect from 'expect';
 describe('The RESTful API Config', function() {
 
   it('should get the search RESTful API', function() {
-    expect(Config.getSearchAPI().url)
+    expect(Config.getMovieSearchAPI().url)
       .toEqual("http://localhost/3/search/movie?api_key=df3908a9e93ea4fa095429a46c0eec66");
   });
 
   it('should use the GET method for the search RESTful API', function() {
-    expect(Config.getSearchAPI().method).toEqual('GET');
+    expect(Config.getMovieSearchAPI().method).toEqual('GET');
   });
 
   it('should get the configuration RESTful API', function() {

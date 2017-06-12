@@ -143,7 +143,7 @@ export function searchMovies(params) {
 
   myHeaders.append('Content-Type', 'application/json');
 
-  let config = Config.getSearchAPI();
+  let config = Config.getMovieSearchAPI();
 
   let requestString = setSearchMoviesParamString(params);
 
