@@ -1,6 +1,6 @@
 /**
  * @file Movie Database REST API endpoint configuration
- * @description Functions to get the settings for the Movie Database REST API endpoints. This class could be used to get environment variables i.e. Dev, Q.A, Production
+ * @description Helper functions to get the settings for the Movie Database REST API endpoints. Each function returns the appropriate URL (DEV, Test, Prod) and the HTTP Request Method.
  * @author Andrew James
  * @version 0.1
  */
@@ -12,11 +12,16 @@ import environment from '../environments/environment';
 //Private properties
 const API_KEY = 'df3908a9e93ea4fa095429a46c0eec66';
 
+//------------------------------------------------//
+// We're using named function expressions here§   //
+// https://github.com/airbnb/javascript#functions //
+//------------------------------------------------//
+
 const Config = {
   /**
    * @description - configuration for the /search/movie API resource
    * @param none
-   * @returns {object} - the URL and HTTP Method
+   * @returns {object} - the URL and HTTP Request Method
    */
   getMovieSearchAPI: function getMovieSearchAPI() {
     return {
@@ -25,9 +30,20 @@ const Config = {
     };
   },
   /**
+   * @description - configuration for the /search/person API resource
+   * @param none
+   * @returns {object} - the URL and HTTP Request Method
+   */
+  getPeopleSearchAPI: function getPeopleSearchAPI() {
+    return {
+      url: environment.endpoints.PEOPLE_SEARCH_API + API_KEY,
+      method: "GET"
+    };
+  },
+  /**
    * @description - configuration for the /configuration API resource
    * @param none
-   * @returns {object} - the URL and HTTP Method
+   * @returns {object} - the URL and HTTP Request Method
    */
   getTMDBApiConfiguration: function getTMDBApiConfiguration() {
     return {
@@ -38,7 +54,7 @@ const Config = {
   /**
    * @description - configuration for the resourse to get the ISO 639-1 Language Codes and IETF Language Types
    * @param none
-   * @returns {object} - the URL and HTTP Method
+   * @returns {object} - the URL and HTTP Request Method
    */
   getISO639_1CodeSrc: function getISO639_1CodeSrc() {
     return {
@@ -49,7 +65,7 @@ const Config = {
   /**
    * @description - configuration for the resourse to get the ISO 3166-1-alpha-2 English country names and code elements
    * @param none
-   * @returns {object} - the URL and HTTP Method
+   * @returns {object} - the URL and HTTP Request Method
    */
   getISO3166_1CodeSrc: function getISO3166_1CodeSrc() {
     return {
