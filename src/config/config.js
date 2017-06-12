@@ -36,11 +36,6 @@ const Config = {
     };
   },
   /**
-   * @description
-   * @type {object}
-   */
-  TMDbConfiguration: undefined,
-  /**
    * @description - configuration for the resourse to get the ISO 639-1 Language Codes and IETF Language Types
    * @param none
    * @returns {object} - the URL and HTTP Method
