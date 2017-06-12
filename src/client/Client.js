@@ -125,11 +125,6 @@ export function setSearchMoviesParamString(params) {
 
   Object.keys(params).map((key, index) => {
     if(Object.prototype.hasOwnProperty.call(params,key) && validParam(key, params[key])) {
-        /*
-        if(index < Object.keys(params).length) {
-          paramStr += '&';
-        }
-        */
         paramStr += `&${key}=${encodeURI(params[key])}`;
     }
   });
@@ -137,13 +132,10 @@ export function setSearchMoviesParamString(params) {
   return paramStr;
 }
 
-export function searchMovies(params) {
-
+export function searchTMDB(config, params) {
   let myHeaders = new Headers();
 
   myHeaders.append('Content-Type', 'application/json');
-
-  let config = Config.getMovieSearchAPI();
 
   let requestString = setSearchMoviesParamString(params);
 
@@ -163,6 +155,14 @@ export function searchMovies(params) {
   }).catch((error) => {
 
   });
+}
+
+export function searchMovies(params) {
+  return searchTMDB(Config.getMovieSearchAPI(), params);
+}
+
+export function searchPeople(params) {
+  return searchTMDB(Config.getPeopleSearchAPI(), params);
 }
 
 export function getTMDBApiConfiguration() {

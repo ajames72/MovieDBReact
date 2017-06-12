@@ -1,5 +1,6 @@
 import nock from 'nock';
 import expect from 'expect';
+import Config from '../config/Config';
 import * as TestData from '../../test/TestData';
 import * as rest from './Client';
 
@@ -43,8 +44,7 @@ describe('Get ISO3166_1 Codes', () => {
   });
 });
 
-describe('Search Movie API', () => {
-
+describe('Search TMDB API', () => {
   describe('param string', () => {
     it('should only contain the query parameter', () => {
       let mockQuery = {
@@ -132,14 +132,54 @@ describe('Search Movie API', () => {
       .reply(200, mockResponse);
 
     it('should return a response for the movie API', () => {
-      rest.searchMovies(mockQuery).then((response) => {
+      rest.searchTMDB(Config.getMovieSearchAPI(), mockQuery).then((response) => {
         expect(response).toEqual(mockResponse);
       }).catch((error) => {
 
       });
     });
+
+
+    describe('Search Movie API', () => {
+
+      nock.disableNetConnect();
+
+      let scope = nock('http://localhost')
+        .get('/3/search/movie?api_key=123456&query=Search%20Term&include_adult=true&language=aa&region=AS&year=1999&primary_release_year=2000')
+        .reply(200, mockResponse);
+
+      it('should return a response for the movie API', () => {
+        rest.searchMovies(mockQuery).then((response) => {
+          expect(response).toEqual(mockResponse);
+        }).catch((error) => {
+
+        });
+      });
+    });
+
+    describe('search People API', () => {
+      nock.disableNetConnect();
+
+      let scope = nock('http://localhost')
+        .get('/3/search/person?api_key=123456&query=Search%20Term&include_adult=true&language=aa&region=AS&year=1999&primary_release_year=2000')
+        .reply(200, mockResponse);
+
+        it('should return a response for the movie API', () => {
+          rest.searchPeople(mockQuery).then((response) => {
+            expect(response).toEqual(mockResponse);
+          }).catch((error) => {
+
+          });
+        });
+    });
+
   });
+
+
 });
+
+
+
 
 describe('TMDB configuration', () => {
   let mockResponse = TestData.tmdb_configuration;
