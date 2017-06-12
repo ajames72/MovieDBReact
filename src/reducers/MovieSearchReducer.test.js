@@ -14,7 +14,7 @@ describe('MovieSearchReducer', () => {
   });
 
   it('should create results when passed MOVIE_SEARCH action', () => {
-    const action = SearchActions.movieSearchSuccess(TestData.results);
-    expect(MovieSearchReducer(initialState, action)).toEqual(TestData.results);
+    const action = SearchActions.movieSearchSuccess(TestData.movie_search_action_results);
+    expect(MovieSearchReducer(initialState, action)).toEqual(TestData.movie_search_action_results);
   });
 });

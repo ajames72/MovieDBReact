@@ -1,9 +1,5 @@
 import React, {PropTypes} from 'react';
 import Header from './common/Header';
-/*
-import Search from './search/Search';
-import Results from './results/Results';
-*/
 
 class App extends React.Component {
   render() {
@@ -18,6 +14,6 @@ class App extends React.Component {
 
 App.propTypes = {
   children: PropTypes.object.isRequired
-}
+};
 
 export default App;

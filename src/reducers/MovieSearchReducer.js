@@ -7,7 +7,7 @@ const initialState = {
 /**
  * @description Movie Search Reducer
  * @param {object} state - response from the /search/movie resource
- * @param {string} action - action type GET_ISO3166_1_CODES
+ * @param {string} action - action type SEARCH_MOVIES
  * @returns {object}
  **/
 export default function MovieSearchReducer(state = initialState, action) {
