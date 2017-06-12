@@ -146,7 +146,7 @@ describe('TMDB configuration', () => {
 
   nock.disableNetConnect();
 
-  let scope = nock('https://localhost')
+  let scope = nock('http://localhost')
     .get('/3/configuration?api_key=df3908a9e93ea4fa095429a46c0eec66')
     .reply(200, mockResponse);
 

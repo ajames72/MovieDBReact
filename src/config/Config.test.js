@@ -15,7 +15,7 @@ describe('The RESTful API Config', function() {
 
   it('should get the configuration RESTful API', function() {
     expect(Config.getTMDBApiConfiguration().url)
-      .toEqual("https://localhost/3/configuration?api_key=df3908a9e93ea4fa095429a46c0eec66");
+      .toEqual("http://localhost/3/configuration?api_key=df3908a9e93ea4fa095429a46c0eec66");
   });
 
   it('should use the GET method for the configuration RESTful API', function() {

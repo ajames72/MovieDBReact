@@ -72,7 +72,6 @@ class Search extends React.Component {
   search(event) {
     event.preventDefault();
     //Pass search action depending on movies, tv show, etc
-    console.log("search", this.state);
     this.props.search(this.state);
   }
 
