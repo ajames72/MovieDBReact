@@ -22,7 +22,7 @@ const MovieSearch = ({actions}) => {
 };
 
 MovieSearch.propTypes = {
-  actions: PropTypes.func.isRequired
+  actions: PropTypes.object.isRequired
 };
 
 export default MovieSearch;
