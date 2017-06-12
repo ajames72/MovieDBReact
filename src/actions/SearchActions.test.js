@@ -6,8 +6,6 @@ import * as types from './ActionTypes';
 import * as SearchActions from './SearchActions';
 import * as TestData from '../../test/TestData';
 
-
-
 describe('SearchActions', () => {
 
   nock.disableNetConnect();
@@ -57,7 +55,7 @@ describe('SearchActions', () => {
   });
 
   describe('movie search', () => {
-    
+
     let mockResponse = {
       "results": []
     };
@@ -72,18 +70,46 @@ describe('SearchActions', () => {
     };
 
     const expectedAction = {
-      type: types.SEARCH_MOVIES, results: mockResponse
+      type: types.SEARCH_MOVIES, results: TestData.movie_search_action_results
     };
 
     let scope = nock('http://localhost')
       .get('/3/search/movie?api_key=df3908a9e93ea4fa095429a46c0eec66&query=Search%20Term&include_adult=true&language=aa&region=AS&year=1999&primary_release_year=2000')
-      .reply(200, mockResponse);
+      .reply(200, TestData.movie_search_results);
 
 
     it('should call the search movie API', () => {
       return store.dispatch(SearchActions.movieSearch(mockQuery)).then(() => {
         const actions = store.getActions();
         expect(actions[2]).toEqual(expectedAction);
+      });
+    });
+  });
+
+  describe('people search', () => {
+
+    let mockQuery = {
+      query: "Search Term",
+      include_adult: 'true',
+      language: 'aa',
+      region: 'AS',
+      year: '1999',
+      primary_release_year: '2000'
+    };
+
+    const expectedAction = {
+      type: types.SEARCH_PEOPLE, results: TestData.people_search_action_results
+    };
+
+    let scope = nock('http://localhost')
+      .get('/3/search/person?api_key=df3908a9e93ea4fa095429a46c0eec66&query=Search%20Term&include_adult=true&language=aa&region=AS&year=1999&primary_release_year=2000')
+      .reply(200, TestData.people_search_results);
+
+
+    it('should call the search people API', () => {
+      return store.dispatch(SearchActions.peopleSearch(mockQuery)).then(() => {
+        const actions = store.getActions();
+        expect(actions[3]).toEqual(expectedAction);
       });
     });
   });
@@ -100,7 +126,7 @@ describe('SearchActions', () => {
     it('should create an action to load the configuration', () => {
       store.dispatch(SearchActions.loadTMDBApiConfiguration()).then(() => {
         const actions = store.getActions();
-        expect(actions[3]).toEqual(expectedAction);
+        expect(actions[4]).toEqual(expectedAction);
       }, (error) => {
 
       });

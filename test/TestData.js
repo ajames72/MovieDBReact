@@ -1,3 +1,102 @@
+
+export const tmdb_configuration = {
+  "images": {
+    "base_url": "http://image.tmdb.org/t/p/",
+    "secure_base_url": "https://image.tmdb.org/t/p/",
+    "backdrop_sizes": [
+      "w300",
+      "w780",
+      "w1280",
+      "original"
+    ],
+    "logo_sizes": [
+      "w45",
+      "w92",
+      "w154",
+      "w185",
+      "w300",
+      "w500",
+      "original"
+    ],
+    "poster_sizes": [
+      "w92",
+      "w154",
+      "w185",
+      "w342",
+      "w500",
+      "w780",
+      "original"
+    ],
+    "profile_sizes": [
+      "w45",
+      "w185",
+      "h632",
+      "original"
+    ],
+    "still_sizes": [
+      "w92",
+      "w185",
+      "w300",
+      "original"
+    ]
+  },
+  "change_keys": [
+    "adult",
+    "air_date",
+    "also_known_as",
+    "alternative_titles",
+    "biography",
+    "birthday",
+    "budget",
+    "cast",
+    "certifications",
+    "character_names",
+    "created_by",
+    "crew",
+    "deathday",
+    "episode",
+    "episode_number",
+    "episode_run_time",
+    "freebase_id",
+    "freebase_mid",
+    "general",
+    "genres",
+    "guest_stars",
+    "homepage",
+    "images",
+    "imdb_id",
+    "languages",
+    "name",
+    "network",
+    "origin_country",
+    "original_name",
+    "original_title",
+    "overview",
+    "parts",
+    "place_of_birth",
+    "plot_keywords",
+    "production_code",
+    "production_companies",
+    "production_countries",
+    "releases",
+    "revenue",
+    "runtime",
+    "season",
+    "season_number",
+    "season_regular",
+    "spoken_languages",
+    "status",
+    "tagline",
+    "title",
+    "translations",
+    "tvdb_id",
+    "tvrage_id",
+    "type",
+    "video",
+    "videos"
+  ]
+};
+
 export const languages = [
   {
     "alpha2": "aa",
@@ -36,7 +135,7 @@ export const countries = [
   }
 ];
 
-export const results = {
+export const movie_search_results = {
   "page": 1,
   "results": [
     {
@@ -448,100 +547,301 @@ export const results = {
   "total_pages": 6
 }
 
-export const tmdb_configuration = {
-  "images": {
-    "base_url": "http://image.tmdb.org/t/p/",
-    "secure_base_url": "https://image.tmdb.org/t/p/",
-    "backdrop_sizes": [
-      "w300",
-      "w780",
-      "w1280",
-      "original"
-    ],
-    "logo_sizes": [
-      "w45",
-      "w92",
-      "w154",
-      "w185",
-      "w300",
-      "w500",
-      "original"
-    ],
-    "poster_sizes": [
-      "w92",
-      "w154",
-      "w185",
-      "w342",
-      "w500",
-      "w780",
-      "original"
-    ],
-    "profile_sizes": [
-      "w45",
-      "w185",
-      "h632",
-      "original"
-    ],
-    "still_sizes": [
-      "w92",
-      "w185",
-      "w300",
-      "original"
-    ]
-  },
-  "change_keys": [
-    "adult",
-    "air_date",
-    "also_known_as",
-    "alternative_titles",
-    "biography",
-    "birthday",
-    "budget",
-    "cast",
-    "certifications",
-    "character_names",
-    "created_by",
-    "crew",
-    "deathday",
-    "episode",
-    "episode_number",
-    "episode_run_time",
-    "freebase_id",
-    "freebase_mid",
-    "general",
-    "genres",
-    "guest_stars",
-    "homepage",
-    "images",
-    "imdb_id",
-    "languages",
-    "name",
-    "network",
-    "origin_country",
-    "original_name",
-    "original_title",
-    "overview",
-    "parts",
-    "place_of_birth",
-    "plot_keywords",
-    "production_code",
-    "production_companies",
-    "production_countries",
-    "releases",
-    "revenue",
-    "runtime",
-    "season",
-    "season_number",
-    "season_regular",
-    "spoken_languages",
-    "status",
-    "tagline",
-    "title",
-    "translations",
-    "tvdb_id",
-    "tvrage_id",
-    "type",
-    "video",
-    "videos"
+export const movie_search_action_results = {
+  "results": [
+    {
+
+      "original_title": "Star Wars",
+      "poster_path": "/tvSlBzAdRE29bZe5yYWrJ2ds137.jpg"
+    },
+    {
+      "original_title": "Rogue One: A Star Wars Story",
+      "poster_path": "/qjiskwlV1qQzRCjpV0cL9pEMF9a.jpg"
+    },
+    {
+      "original_title": "Star Wars: The Force Awakens",
+      "poster_path": "/weUSwMdQIa3NaXVzwUoIIcAi85d.jpg"
+    },
+    {
+      "original_title": "Star Wars: The Last Jedi",
+      "poster_path": "/rfjrAyAueCOwErk67vnkMB0Uxvj.jpg"
+    },
+    {
+      "original_title": "Star Wars: The Clone Wars",
+      "poster_path": "/xd6yhmtS6mEURZLwUDT5raEMbf.jpg"
+    },
+    {
+      "original_title": "Star Wars: Episode IX",
+      "poster_path": "/yVYTFvIiKyr6vsrPw3o5C6t2eoL.jpg"
+    },
+    {
+      "original_title": "Star Wars: Episode III - Revenge of the Sith",
+      "poster_path": "/tgr5Pdy7ehZYBqBkN2K7Q02xgOb.jpg"
+    },
+    {
+      "original_title": "Robot Chicken: Star Wars",
+      "poster_path": "/kWKspQ7YiQ82xXM1jVbIbqh5OyV.jpg"
+    },
+    {
+      "original_title": "Star Wars: Episode I - The Phantom Menace",
+      "poster_path": "/n8V09dDc02KsSN6Q4hC2BX6hN8X.jpg"
+    },
+    {
+      "original_title": "Star Wars: Episode II - Attack of the Clones",
+      "poster_path": "/2vcNFtrZXNwIcBgH5e2xXCmVR8t.jpg"
+    },
+    {
+      "original_title": "Star Wars: Greatest Moments",
+      "poster_path": "/65jlytLScOl2pEzm1ky6aagVreR.jpg"
+    },
+    {
+      "original_title": "The Story of Star Wars",
+      "poster_path": "/4UrrUoVQ1Ft6g6uI4FQN6JrJwSQ.jpg"
+    },
+    {
+      "original_title": "The Star Wars Holiday Special",
+      "poster_path": "/sNxgvnswaahOA3mdkjcuYYpLi7i.jpg"
+    },
+    {
+      "original_title": "Star Wars: Revelations",
+      "poster_path": "/7ocWi5hcPOzqyseLjOpeZR3TIfC.jpg"
+    },
+    {
+      "original_title": "Star Wars: TIE Fighter",
+      "poster_path": "/jwUexLOEBMFMbBoKzK4AT7hQYDw.jpg"
+    },
+    {
+      "original_title": "The Empire Strikes Back",
+      "poster_path": "/6u1fYtxG5eqjhtCPDx04pJphQRW.jpg"
+    },
+    {
+      "original_title": "Star Wars: Clone Wars (Volume 1)",
+      "poster_path": "/2Bc0Ust8YlcJy6tSwiXTLu66xRa.jpg"
+    },
+    {
+      "original_title": "Star Wars: Clone Wars ( Volume Two)",
+      "poster_path": "/nvxKvVQortycuwmfMdUIfDtYdL1.jpg"
+    },
+    {
+      "original_title": "Lego Star Wars: The Padawan Menace",
+      "poster_path": "/cIKQu7UlXAv94guz14Zij0Xm0tx.jpg"
+    },
+    {
+      "original_title": "Return of the Jedi",
+      "poster_path": "/jx5p0aHlbPXqe3AH9G15NvmWaqQ.jpg"
+    }
   ]
-};
+}
+
+
+export const people_search_results = {
+  "page": 1,
+  "total_results": 3,
+  "total_pages": 1,
+  "results": [
+    {
+      "popularity": 10.266721,
+      "id": 3,
+      "profile_path": "/aVKNqtkzZCymupOrvwxozamRyVc.jpg",
+      "name": "Harrison Ford",
+      "known_for": [
+        {
+          "vote_average": 7.5,
+          "vote_count": 6853,
+          "id": 140607,
+          "video": false,
+          "media_type": "movie",
+          "title": "Star Wars: The Force Awakens",
+          "popularity": 11.021224,
+          "poster_path": "/weUSwMdQIa3NaXVzwUoIIcAi85d.jpg",
+          "original_language": "en",
+          "original_title": "Star Wars: The Force Awakens",
+          "genre_ids": [
+            28,
+            12,
+            878,
+            14
+          ],
+          "backdrop_path": "/c2Ax8Rox5g6CneChwy1gmu4UbSb.jpg",
+          "adult": false,
+          "overview": "Thirty years after defeating the Galactic Empire, Han Solo and his allies face a new threat from the evil Kylo Ren and his army of Stormtroopers.",
+          "release_date": "2015-12-15"
+        },
+        {
+          "vote_average": 8,
+          "vote_count": 5780,
+          "id": 11,
+          "video": false,
+          "media_type": "movie",
+          "title": "Star Wars",
+          "popularity": 8.923744,
+          "poster_path": "/tvSlBzAdRE29bZe5yYWrJ2ds137.jpg",
+          "original_language": "en",
+          "original_title": "Star Wars",
+          "genre_ids": [
+            12,
+            28,
+            878
+          ],
+          "backdrop_path": "/4iJfYYoQzZcONB9hNzg0J0wWyPH.jpg",
+          "adult": false,
+          "overview": "Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.",
+          "release_date": "1977-05-25"
+        },
+        {
+          "vote_average": 8.2,
+          "vote_count": 5156,
+          "id": 1891,
+          "video": false,
+          "media_type": "movie",
+          "title": "The Empire Strikes Back",
+          "popularity": 5.14334,
+          "poster_path": "/6u1fYtxG5eqjhtCPDx04pJphQRW.jpg",
+          "original_language": "en",
+          "original_title": "The Empire Strikes Back",
+          "genre_ids": [
+            12,
+            28,
+            878
+          ],
+          "backdrop_path": "/amYkOxCwHiVTFKendcIW0rSrRlU.jpg",
+          "adult": false,
+          "overview": "The epic saga continues as Luke Skywalker, in hopes of defeating the evil Galactic Empire, learns the ways of the Jedi from aging master Yoda. But Darth Vader is more determined than ever to capture Luke. Meanwhile, rebel leader Princess Leia, cocky Han Solo, Chewbacca, and droids C-3PO and R2-D2 are thrown into various stages of capture, betrayal and despair.",
+          "release_date": "1980-05-17"
+        }
+      ],
+      "adult": false
+    },
+    {
+      "popularity": 1,
+      "id": 148815,
+      "profile_path": "/mRkduiOiWpwinoYYVHlJnG62dQF.jpg",
+      "name": "Harrison Ford",
+      "known_for": [
+        {
+          "vote_average": 6.3,
+          "vote_count": 9,
+          "id": 35227,
+          "video": false,
+          "media_type": "movie",
+          "title": "Foolish Wives",
+          "popularity": 1.212997,
+          "poster_path": "/zCKJkGlGtFMGtRIn4b2ZmwC5R3Q.jpg",
+          "original_language": "en",
+          "original_title": "Foolish Wives",
+          "genre_ids": [
+            18
+          ],
+          "backdrop_path": "/3hHVu2SCLIewRXXgQTyO759lNIz.jpg",
+          "adult": false,
+          "overview": "Actor / writer / director Erich von Stroheim stars as a fraudulent count, living high on the hog in Monte Carlo. He supports himself by extorting huge sums of money from silly married ladies who are dumb enough to fall for his romantic charms. Von Stroheim's partners in crime, phony princesses Mae Busch and Maud George, live in a state of perpetual depravity with the count in a huge mansion. Their latest victim, played by an actress who insisted upon being billed as Miss DuPont, is the wife of an American financier. Von Stroheim's attempted seduction of this particular foolish wife is thwarted at every turn, and the count ultimately gets his comeuppance.",
+          "release_date": "1922-01-11"
+        },
+        {
+          "vote_average": 5,
+          "vote_count": 2,
+          "id": 64860,
+          "video": false,
+          "media_type": "movie",
+          "title": "Shadows",
+          "popularity": 1.083936,
+          "poster_path": "/l54YggBfZNkfVTHYA72Vpfzef3x.jpg",
+          "original_language": "en",
+          "original_title": "Shadows",
+          "genre_ids": [
+            18
+          ],
+          "backdrop_path": "/tMY1AW2lTuLh49CBrxRhW6aD8tO.jpg",
+          "adult": false,
+          "overview": "Yen Sin, a humble Chinese, is washed ashore after a storm and finds himself an outsider in the deeply Christian fishing community of Urkey. Yen Sin elects to stay, despite his status as a despised 'heathen', only to reveal hypocrisy amid the self-righteous township.",
+          "release_date": "1922-11-10"
+        },
+        {
+          "vote_average": 4.3,
+          "vote_count": 2,
+          "id": 180316,
+          "video": false,
+          "media_type": "movie",
+          "title": "A Blonde For A Night",
+          "popularity": 1.000703,
+          "poster_path": "/usjXtxmGKoFTn2zVbA8T5rnJEOn.jpg",
+          "original_language": "en",
+          "original_title": "A Blonde For A Night",
+          "genre_ids": [
+            35
+          ],
+          "backdrop_path": null,
+          "adult": false,
+          "overview": "After an argument, a newlywed decides to test her husband's fidelity by disguising herself as a blonde.",
+          "release_date": "1928-02-25"
+        }
+      ],
+      "adult": false
+    },
+    {
+      "popularity": 1.063,
+      "id": 1491583,
+      "profile_path": "/pnylMvOX8Y77AxSzjWxeafvTsxH.jpg",
+      "name": "Harry M. Ford",
+      "known_for": [
+        {
+          "vote_average": 6.6,
+          "vote_count": 72,
+          "id": 157827,
+          "video": false,
+          "media_type": "movie",
+          "title": "Louder Than Bombs",
+          "popularity": 1.185707,
+          "poster_path": "/rnbs1o9UXScWCP2VqScZqPr4IwN.jpg",
+          "original_language": "en",
+          "original_title": "Louder Than Bombs",
+          "genre_ids": [
+            18
+          ],
+          "backdrop_path": "/aeGNiWGk0HJ4N7xHE5Mgkq9ir1y.jpg",
+          "adult": false,
+          "overview": "Three years after his wife, acclaimed photographer Isabelle Reed, dies in a car crash, Gene keeps everyday life going with his shy teenage son, Conrad. A planned exhibition of Isabelle’s photographs prompts Gene's older son, Jonah, to return to the house he grew up in - and for the first time in a very long time, the father and the two brothers are living under the same roof.",
+          "release_date": "2015-05-18"
+        },
+        {
+          "original_name": "Code Black",
+          "id": 63418,
+          "media_type": "tv",
+          "name": "Code Black",
+          "vote_count": 37,
+          "vote_average": 6.88,
+          "poster_path": "/lhz6RdG7uX3rBUijWh86rqbmYtS.jpg",
+          "first_air_date": "2015-09-30",
+          "popularity": 2.438207,
+          "genre_ids": [
+            18
+          ],
+          "original_language": "en",
+          "backdrop_path": "/nOP5ge5U0IjhsEDfLgvD7nHYGA.jpg",
+          "overview": "Inspired by the award-winning documentary, this medical drama is set in the busiest and most notorious ER in the nation where the extraordinary staff confront a challenged system in order to protect their ideals and the patients who need them the most.",
+          "origin_country": [
+            "US"
+          ]
+        }
+      ],
+      "adult": false
+    }
+  ]
+}
+
+export const people_search_action_results = {
+  "results": [
+    {
+      "original_title": "Harrison Ford",
+      "poster_path": "/aVKNqtkzZCymupOrvwxozamRyVc.jpg"
+    },
+    {
+      "original_title": "Harrison Ford",
+      "poster_path": "/mRkduiOiWpwinoYYVHlJnG62dQF.jpg"
+    },
+    {
+      "original_title": "Harry M. Ford",
+      "poster_path": "/pnylMvOX8Y77AxSzjWxeafvTsxH.jpg"
+    }
+  ]
+}

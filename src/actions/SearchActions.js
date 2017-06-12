@@ -19,9 +19,9 @@ export function loadTMDBApiConfigurationSuccess(config) {
 
 export function loadLanguageOptions() {
   return function dispatchLanguageOptions(dispatch) {
-    return rest.getISO639_1Codes().then(response => {
+    return rest.getISO639_1Codes().then((response) => {
       dispatch(loadLanguageOptionsSuccess(response));
-    }, error => {
+    }, (error) => {
 
     });
   };
@@ -35,9 +35,9 @@ export function loadLanguageOptionsSuccess(languages) {
 
 export function loadCountryOptions() {
   return function dispatchCountryOptions(dispatch) {
-    return rest.getISO3166_1Codes().then(response => {
+    return rest.getISO3166_1Codes().then((response) => {
       dispatch(loadCountryOptionsSuccess(response));
-    }, error => {
+    }, (error) => {
 
     });
   };
@@ -51,7 +51,7 @@ export function loadCountryOptionsSuccess(countries) {
 
 export function movieSearch(params) {
   return function dispatchMovieSearch(dispatch) {
-    return rest.searchMovies(params).then(response => {
+    return rest.searchMovies(params).then((response) => {
       //Filter the data and keep only what we need in the store
       let searchResults = response.results.reduce((filteredResults, currentResult, index) => {
         filteredResults[index] = {
@@ -63,7 +63,7 @@ export function movieSearch(params) {
       }, []);
 
       dispatch(movieSearchSuccess(Object.assign({}, {results: searchResults})));
-    }, error => {
+    }, (error) => {
 
     });
   };
@@ -72,5 +72,30 @@ export function movieSearch(params) {
 export function movieSearchSuccess(results) {
   return {
     type: types.SEARCH_MOVIES, results
+  };
+}
+
+export function peopleSearch(params) {
+  return function dispatchPeopleSearch(dispatch) {
+    return rest.searchPeople(params).then((response) => {
+      let searchResults = response.results.reduce((filteredResults, currentResult, index) => {
+        filteredResults[index] = {
+          poster_path: currentResult['profile_path'],
+          original_title: currentResult['name']
+        };
+
+        return filteredResults;
+      }, []);
+
+      dispatch(peopleSearchSuccess(Object.assign({}, {results: searchResults})));
+    }, (error) => {
+
+    });
+  };
+}
+
+export function peopleSearchSuccess(results) {
+  return {
+    type: types.SEARCH_PEOPLE, results
   };
 }
