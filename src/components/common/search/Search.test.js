@@ -8,6 +8,10 @@ import Search from './Search';
 
 describe('Search component', () => {
 
+  const noop = () => {
+    //Noop
+  };
+
   const languages = [
     {
       "alpha2": "de",
@@ -37,7 +41,7 @@ describe('Search component', () => {
 
       let search = mount(
         <Provider store={store}>
-          <Search />
+          <Search search={noop} />
         </Provider>
       );
 
@@ -50,7 +54,7 @@ describe('Search component', () => {
 
       let search = mount(
         <Provider store={store}>
-          <Search />
+          <Search search={noop} />
         </Provider>
       );
 
