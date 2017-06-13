@@ -11,7 +11,7 @@ describe('MovieResults', () => {
     it('should display movies', () => {
 
       let results = render(
-          <MovieResults movies={TestData.movie_search_results} config={TestData.tmdb_configuration} />
+          <MovieResults searchResults={TestData.movie_search_results} config={TestData.tmdb_configuration} />
       );
 
       expect(results.find('.tmdb-movie').length).toEqual(20);

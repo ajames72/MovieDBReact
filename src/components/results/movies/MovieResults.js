@@ -9,7 +9,7 @@ import React, {PropTypes} from 'react';
 import Movie from './Movie';
 import MovieTitle from './MovieTitle';
 
-const MovieResults = ({movies, config}) => {
+const MovieResults = ({searchResults, config}) => {
 
   const path = config.images.base_url + config.images.poster_sizes[0];
 
@@ -17,7 +17,7 @@ const MovieResults = ({movies, config}) => {
     <div className="row">
       <div className="col-lg-12">
         {
-          movies.results.map((result, index) =>
+          searchResults.results.map((result, index) =>
             <div key={index} className="tmdb-movie">
               <Movie src={path + result.poster_path} alt={result.original_title}/>
               <MovieTitle title={result.original_title} />
@@ -30,7 +30,7 @@ const MovieResults = ({movies, config}) => {
 };
 
 MovieResults.propTypes = {
-  movies: PropTypes.object.isRequired,
+  searchResults: PropTypes.object.isRequired,
   config: PropTypes.object.isRequired
 };
 

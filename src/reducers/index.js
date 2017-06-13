@@ -2,7 +2,7 @@ import {combineReducers} from 'redux';
 import config from './TMDBApiConfigurationReducer';
 import languages from './LanguageReducer';
 import countries from './CountryReducer';
-import movies from './SearchReducer';
+import searchResults from './SearchReducer';
 
 /**
  * using ES6 shorthand property names
@@ -11,7 +11,7 @@ const rootReducer = combineReducers({
   config,
   languages,
   countries,
-  movies
+  searchResults
 });
 
 export default rootReducer;

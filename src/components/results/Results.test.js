@@ -8,7 +8,7 @@ import Results from './Results';
 
 describe('Results', () => {
 
-  const movies = {
+  const searchResults = {
     "page": 1,
     "results": [],
     "total_results": 0,
@@ -29,7 +29,7 @@ describe('Results', () => {
     const middlewares = [ thunk ];
     const mockStore = configureStore(middlewares);
     const initialState = {
-      movies,
+      searchResults,
       config
     };
 

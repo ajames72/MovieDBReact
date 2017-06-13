@@ -15,7 +15,7 @@ describe('PeoplePage', () => {
     languages: TestData.languages,
     countries: TestData.countries,
     config: TestData.tmdb_configuration,
-    movies: {results: []}
+    searchResults: {results: []}
   };
 
   describe('Component structure', () => {
