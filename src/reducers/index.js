@@ -2,7 +2,7 @@ import {combineReducers} from 'redux';
 import config from './TMDBApiConfigurationReducer';
 import languages from './LanguageReducer';
 import countries from './CountryReducer';
-import movies from './MovieSearchReducer';
+import movies from './SearchReducer';
 
 /**
  * using ES6 shorthand property names
