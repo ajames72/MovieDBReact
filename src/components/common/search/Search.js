@@ -10,7 +10,6 @@ import {bindActionCreators} from 'redux';
 
 import SearchBox from './searchbox/SearchBox';
 import SearchOptions from './searchoptions/SearchOptions';
-import * as searchActions from '../../../actions/SearchActions';
 
 class Search extends React.Component {
 
@@ -32,11 +31,6 @@ class Search extends React.Component {
       year: '',
       primary_release_year: ''
     };
-  }
-
-  componentWillMount() {
-    this.props.actions.loadLanguageOptions();
-    this.props.actions.loadCountryOptions();
   }
 
   setSearchTerm(event) {
@@ -102,8 +96,7 @@ class Search extends React.Component {
 Search.propTypes = {
   languages: PropTypes.array.isRequired,
   countries: PropTypes.array.isRequired,
-  search: PropTypes.func.isRequired,
-  actions: PropTypes.object.isRequired
+  search: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
@@ -115,11 +108,5 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-function matchDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(searchActions, dispatch)
-  };
-}
-
-const connectedStateAndProps = connect(mapStateToProps, matchDispatchToProps);
+const connectedStateAndProps = connect(mapStateToProps);
 export default connectedStateAndProps(Search);

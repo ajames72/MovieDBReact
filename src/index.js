@@ -2,7 +2,6 @@ import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
 import ConfigureStore from './store/ConfigureStore';
-import { loadTMDBApiConfiguration, loadLanguageOptions, loadCountryOptions } from './actions/SearchActions';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import routes from './routes';
@@ -17,9 +16,6 @@ import './style/MovieDB.less';
 //Consider
 //https://react-bootstrap.github.io/introduction.html
 const store = ConfigureStore();
-
-//Load API configuration because it's used across components
-store.dispatch(loadTMDBApiConfiguration());
 
 render(
   <Provider store={store}>

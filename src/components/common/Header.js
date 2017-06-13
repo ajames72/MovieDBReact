@@ -17,7 +17,7 @@ class Header extends React.Component {
               <a href="#">Companies</a>
             </li>
             <li>
-              <a href="#">People</a>
+              <Link to="people">People</Link>
             </li>
             <li>
               <a href="#">TV Shows</a>
