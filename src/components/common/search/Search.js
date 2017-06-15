@@ -71,14 +71,14 @@ class Search extends React.Component {
 
   render() {
 
-    const {languages, countries} = this.props;
+    const {languages, countries, sectionAttributes} = this.props;
 
     return (
       <div className="row">
-        <SearchBox onSubmit={this.search} onChange={this.setSearchTerm}/>
         <header className="col-lg-12">
-          <h4>Search Options</h4>
+          <h4>{sectionAttributes.title}</h4>
         </header>
+        <SearchBox onSubmit={this.search} onChange={this.setSearchTerm}/>
         <SearchOptions
           languages={languages}
           countries={countries}
@@ -96,7 +96,8 @@ class Search extends React.Component {
 Search.propTypes = {
   languages: PropTypes.array.isRequired,
   countries: PropTypes.array.isRequired,
-  search: PropTypes.func.isRequired
+  search: PropTypes.func.isRequired,
+  sectionAttributes: PropTypes.object
 };
 
 function mapStateToProps(state, ownProps) {
@@ -104,7 +105,8 @@ function mapStateToProps(state, ownProps) {
   //state.languages property is defined in the reducer (rootReducer)
   return {
     languages: state.languages,
-    countries: state.countries
+    countries: state.countries,
+    sectionAttributes: state.sectionAttributes
   };
 }
 

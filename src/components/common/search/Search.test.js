@@ -32,7 +32,11 @@ describe('Search component', () => {
     const mockStore = configureStore(middlewares);
     const initialState = {
       languages,
-      countries
+      countries,
+      sectionAttributes: {
+        'section': "movies",
+        'title': "Movie Search"
+      }
     };
 
     it('should contain a SearchBox component', () => {
@@ -60,5 +64,9 @@ describe('Search component', () => {
 
       expect(search.find('SearchOptions').length).toEqual(1);
     });
+
+    /**
+     * @TODO: Test for missing attributes/states/etc
+     */
   });
 });

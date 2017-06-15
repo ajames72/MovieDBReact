@@ -99,3 +99,9 @@ export function peopleSearchSuccess(results) {
     type: types.SEARCH_PEOPLE, results
   };
 }
+
+export function setSectionAttributes(sectionAttrs) {
+  return {
+    type: types.SET_SECTION_ATTRIBUTES, sectionAttrs
+  };
+}

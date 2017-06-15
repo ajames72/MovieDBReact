@@ -16,7 +16,11 @@ describe('MoviePage', () => {
     languages: TestData.languages,
     countries: TestData.countries,
     config: TestData.tmdb_configuration,
-    searchResults: {results: []}
+    searchResults: {results: []},
+    sectionAttributes: {
+      'section': "movies",
+      'title': "Movie Search"
+    }
   };
 
   describe('Component Structure', () => {

@@ -15,7 +15,11 @@ describe('PeoplePage', () => {
     languages: TestData.languages,
     countries: TestData.countries,
     config: TestData.tmdb_configuration,
-    searchResults: {results: []}
+    searchResults: {results: []},
+    sectionAttributes: {
+      'section': "people",
+      'title': "People Search"
+    }
   };
 
   describe('Component structure', () => {
