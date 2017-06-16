@@ -166,3 +166,16 @@ describe('SearchActions', () => {
 
   });
 });
+
+describe('set section properties', () => {
+  
+  const mockSectionData = {'title': 'Section Data', 'section': 'route_to_section'};
+
+  const expectedAction = {
+    type: types.SET_SECTION_ATTRIBUTES, sectionAttrs: mockSectionData
+  };
+
+  it('should create an action to set the section attributes', () => {
+    expect(SearchActions.setSectionAttributes(mockSectionData)).toEqual(expectedAction);
+  });
+});
