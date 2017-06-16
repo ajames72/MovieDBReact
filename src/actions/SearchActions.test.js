@@ -146,6 +146,20 @@ describe('SearchActions', () => {
     });
   });
 
+  describe('clear search results', () => {
+    const results = {
+      results: []
+    };
+
+    const expectedAction = {
+      type: types.CLEAR_SEARCH_RESULTS, results
+    };
+
+    it('should create an action to clear the search results', () => {
+      expect(SearchActions.clearSearchResults()).toEqual(expectedAction);
+    });
+  });
+
   describe('loadTMDBApiConfiguration', () => {
     const expectedAction = {
       type: types.GET_TMDB_CONFIGURATION, config: TestData.tmdb_configuration
@@ -168,7 +182,7 @@ describe('SearchActions', () => {
 });
 
 describe('set section properties', () => {
-  
+
   const mockSectionData = {'title': 'Section Data', 'section': 'route_to_section'};
 
   const expectedAction = {

@@ -130,3 +130,13 @@ export function setSectionAttributes(sectionAttrs) {
     type: types.SET_SECTION_ATTRIBUTES, sectionAttrs
   };
 }
+
+export function clearSearchResults() {
+  const results = {
+    results: []
+  };
+
+  return {
+    type: types.CLEAR_SEARCH_RESULTS, results
+  }
+}

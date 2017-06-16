@@ -16,6 +16,7 @@ class MovieSearch extends React.Component {
   }
 
   componentDidMount() {
+    this.props.actions.clearSearchResults();
     //The properties are going to be displayed in more than 1 component
     //so we'll have to call an action to set the attributes
     this.props.actions.setSectionAttributes({'title': 'Movie Search', 'section': ROUTE_PATH_MOVIES});

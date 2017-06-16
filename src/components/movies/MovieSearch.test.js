@@ -1,1 +1,1 @@
-/* No tests, covered in MoviePage.test */
+/* @TODO: Test componentDidMount */

@@ -1,1 +1,1 @@
-/* No tests, covered in PeoplePage.test */
+/* @TODO: Test componentDidMount */

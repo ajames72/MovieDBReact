@@ -22,4 +22,12 @@ describe('SearchReducer', () => {
     const action = SearchActions.peopleSearchSuccess(TestData.people_search_action_results);
     expect(SearchReducer(initialState, action)).toEqual(TestData.people_search_action_results);
   });
+
+  it('should clear the search results when passed CLEAR_SEARCH_RESULTS action', () => {
+    const results = {
+      results: []
+    };
+    const action = SearchActions.clearSearchResults();
+    expect(SearchReducer(initialState, action)).toEqual(results);
+  });
 });
