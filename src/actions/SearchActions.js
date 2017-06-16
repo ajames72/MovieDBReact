@@ -115,7 +115,7 @@ export function tvShowSearch(params) {
       dispatch(tvShowSearchSuccess(Object.assign({}, {results: searchResults})));
     }, (error) => {
 
-    })
+    });
   };
 }
 
