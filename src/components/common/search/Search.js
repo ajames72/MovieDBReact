@@ -75,7 +75,7 @@ class Search extends React.Component {
 
     return (
       <div className="row">
-        <header className="col-lg-12">
+        <header className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <h4>{sectionAttributes.title}</h4>
         </header>
         <SearchBox onSubmit={this.search} onChange={this.setSearchTerm}/>

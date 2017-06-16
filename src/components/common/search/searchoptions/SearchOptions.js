@@ -25,7 +25,7 @@ class SearchOptions extends React.Component {
     } = this.props;
 
     return (
-      <div className="col-lg-12">
+      <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div className="tmdb-searchoptions">
           <div className="tmdb-searchoption__tr">
             <div className="tmdb-searchoption__td">
