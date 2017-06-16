@@ -118,7 +118,11 @@ function validParam(key, value) {
 
   return true;
 }
-
+/**
+ * @description -
+ * @param {object} params
+ * @returns {string} -
+ */
 export function setSearchMoviesParamString(params) {
 
   let paramStr = '';
@@ -132,6 +136,12 @@ export function setSearchMoviesParamString(params) {
   return paramStr;
 }
 
+/**
+ * @description -
+ * @param {object} config
+ * @param {object} params
+ * @returns {object} - JSON response from the API
+ */
 export function searchTMDB(config, params) {
   let myHeaders = new Headers();
 
@@ -157,14 +167,37 @@ export function searchTMDB(config, params) {
   });
 }
 
+/**
+ * @description -
+ * @param {object} params
+ * @returns {object} - JSON response from the Movie Search API
+ */
 export function searchMovies(params) {
   return searchTMDB(Config.getMovieSearchAPI(), params);
 }
 
+/**
+ * @description -
+ * @param {object} params
+ * @returns {object} - JSON response from the People Search API
+ */
 export function searchPeople(params) {
   return searchTMDB(Config.getPeopleSearchAPI(), params);
 }
 
+/**
+ * @description -
+ * @param {object} params
+ * @returns {object} - JSON response from the TV Show Search API
+ */
+export function searchTVShows(params) {
+  return searchTMDB(Config.getTVShowSearchAPI(), params);
+}
+
+/**
+ * @description -
+ * @returns {object} - JSON response from the TMDB Configuration API
+ */
 export function getTMDBApiConfiguration() {
   let myHeaders = new Headers();
 

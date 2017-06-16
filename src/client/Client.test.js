@@ -173,13 +173,23 @@ describe('Search TMDB API', () => {
         });
     });
 
+    describe('search TVShow API', () => {
+      nock.disableNetConnect();
+
+      let scope = nock('http://localhost')
+        .get('/3/search/tv?api_key=123456&query=Search%20Term&include_adult=true&language=aa&region=AS&year=1999&primary_release_year=2000')
+        .reply(200, mockResponse);
+
+        it('should return a response for the movie API', () => {
+          rest.searchTVShows(mockQuery).then((response) => {
+            expect(response).toEqual(mockResponse);
+          }).catch((error) => {
+
+          });
+        });
+    });
   });
-
-
 });
-
-
-
 
 describe('TMDB configuration', () => {
   let mockResponse = TestData.tmdb_configuration;

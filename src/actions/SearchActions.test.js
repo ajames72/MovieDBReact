@@ -82,6 +82,8 @@ describe('SearchActions', () => {
       return store.dispatch(SearchActions.movieSearch(mockQuery)).then(() => {
         const actions = store.getActions();
         expect(actions[2]).toEqual(expectedAction);
+      }, (error) => {
+        //@TODO: test for error
       });
     });
   });
@@ -110,6 +112,36 @@ describe('SearchActions', () => {
       return store.dispatch(SearchActions.peopleSearch(mockQuery)).then(() => {
         const actions = store.getActions();
         expect(actions[3]).toEqual(expectedAction);
+      }, (error) => {
+        //@TODO: test for error
+      });
+    });
+  });
+
+  describe('tv show search', () => {
+    let mockQuery = {
+      query: "Search Term",
+      include_adult: 'true',
+      language: 'aa',
+      region: 'AS',
+      year: '1999',
+      primary_release_year: '2000'
+    };
+
+    const expectedAction = {
+      type: types.SEARCH_TVSHOWS, results: TestData.tvshows_search_action_results
+    };
+
+    let scope = nock('http://localhost')
+      .get('/3/search/tv?api_key=df3908a9e93ea4fa095429a46c0eec66&query=Search%20Term&include_adult=true&language=aa&region=AS&year=1999&primary_release_year=2000')
+      .reply(200, TestData.tvshows_search_results);
+
+    it('should call the search TV Shows API', () => {
+      return store.dispatch(SearchActions.tvShowSearch(mockQuery)).then(() => {
+        const actions = store.getActions();
+        expect(actions[4]).toEqual(expectedAction);
+      }, (error) => {
+        //@TODO: test for error
       });
     });
   });
@@ -126,9 +158,9 @@ describe('SearchActions', () => {
     it('should create an action to load the configuration', () => {
       store.dispatch(SearchActions.loadTMDBApiConfiguration()).then(() => {
         const actions = store.getActions();
-        expect(actions[4]).toEqual(expectedAction);
+        expect(actions[5]).toEqual(expectedAction);
       }, (error) => {
-
+        //@TODO: test for error
       });
     });
 

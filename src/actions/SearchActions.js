@@ -100,6 +100,31 @@ export function peopleSearchSuccess(results) {
   };
 }
 
+export function tvShowSearch(params) {
+  return function dispatchTVShowSearch(dispatch) {
+    return rest.searchTVShows(params).then((response) => {
+      let searchResults = response.results.reduce((filteredResults, currentResult, index) => {
+        filteredResults[index] = {
+          poster_path: currentResult['poster_path'],
+          original_title: currentResult['original_name']
+        };
+
+        return filteredResults;
+      }, []);
+
+      dispatch(tvShowSearchSuccess(Object.assign({}, {results: searchResults})));
+    }, (error) => {
+
+    })
+  };
+}
+
+export function tvShowSearchSuccess(results) {
+  return {
+    type: types.SEARCH_TVSHOWS, results
+  };
+}
+
 export function setSectionAttributes(sectionAttrs) {
   return {
     type: types.SET_SECTION_ATTRIBUTES, sectionAttrs

@@ -1118,6 +1118,35 @@ export const tvshows_search_results = {
   ]
 }
 
+export const tvshows_search_action_results = {
+  "results": [
+    {
+      "original_title": "The Good Wife",
+      "poster_path": "/ljgxvwRXuKgdht3zREaasby1SzL.jpg"
+    },
+    {
+      "original_title": "A Good Wife",
+      "poster_path": null
+    },
+    {
+      "original_title": "굿 와이프",
+      "poster_path": "/dqkKQt0ffbx99vWcIW7ryseVVRf.jpg"
+    },
+    {
+      "original_title": "New Wise Mother, Good Wife",
+      "poster_path": null
+    },
+    {
+      "original_title": "굿바이 마눌",
+      "poster_path": "/xdvXoxxOaosLZqzLSCSZhpYDqfl.jpg"
+    },
+    {
+      "original_title": "Modern Housewives",
+      "poster_path": null
+    }
+  ]
+}
+
 export const tvshows_genre_list = {
   "genres": [
     {
