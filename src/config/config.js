@@ -41,6 +41,17 @@ const Config = {
     };
   },
   /**
+   * @description - configuration for the /search/tv API resource
+   * @param none
+   * @returns {object} - the URL and HTTP Request Method
+   */
+  getTVShowSearchAPI: function getTVShowSearchAPI() {
+    return {
+      url: environment.endpoints.TVSHOW_SEARCH_API + API_KEY,
+      method: "GET"
+    };
+  },
+  /**
    * @description - configuration for the /configuration API resource
    * @param none
    * @returns {object} - the URL and HTTP Request Method
