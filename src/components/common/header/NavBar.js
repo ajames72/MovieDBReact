@@ -39,10 +39,10 @@ const NavBar = ({sectionAttributes}) => {
             (<NavBarItem link={path.ROUTE_PATH_PEOPLE} label="People" />)
           }
           {
-            sectionAttributes.section === 'tvshows' ?
-            (<NavBarItem link="tvshows" label="TV Shows" active />)
+            sectionAttributes.section === path.ROUTE_PATH_TVSHOWS ?
+            (<NavBarItem link={path.ROUTE_PATH_TVSHOWS} label="TV Shows" active />)
             :
-            (<NavBarItem link="tvshows" label="TV Shows" />)
+            (<NavBarItem link={path.ROUTE_PATH_TVSHOWS} label="TV Shows" />)
           }
         </ul>
       </nav>

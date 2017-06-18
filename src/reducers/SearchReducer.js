@@ -23,6 +23,7 @@ export default function SearchReducer(state = initialState, action) {
   switch(action.type) {
     case types.SEARCH_MOVIES:
     case types.SEARCH_PEOPLE:
+    case types.SEARCH_TVSHOWS:
     case types.CLEAR_SEARCH_RESULTS:
       return action.results;
     default:
