@@ -3,9 +3,9 @@ import { Route, IndexRoute } from 'react-router';
 import * as path from './RoutePaths';
 import App from './components/App';
 import HomePage from './components/home/HomePage';
-import MoviePage from './components/movies/MoviePage';
-import PeoplePage from './components/people/PeoplePage';
-import TVShowsPage from './components/tvshows/TVShowsPage';
+import MoviePage from './components/search/movies/MoviePage';
+import PeoplePage from './components/search/people/PeoplePage';
+import TVShowsPage from './components/search/tvshows/TVShowsPage';
 
 export default (
   <Route path="/" component={App}>

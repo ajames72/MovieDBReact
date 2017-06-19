@@ -4,10 +4,10 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import expect from 'expect';
 import { mount } from 'enzyme';
-import MoviePage from './MoviePage';
-import * as TestData from '../../../test/TestData';
+import PeoplePage from './PeoplePage';
+import * as TestData from '../../../../test/TestData';
 
-describe('MoviePage', () => {
+describe('PeoplePage', () => {
 
   //Fake Store and Middleware
   const middlewares = [ thunk ];
@@ -18,52 +18,53 @@ describe('MoviePage', () => {
     config: TestData.tmdb_configuration,
     searchResults: {results: []},
     sectionAttributes: {
-      'section': "movies",
-      'title': "Movie Search"
+      'section': "people",
+      'title': "People Search"
     }
   };
 
   describe('Component Structure', () => {
 
-    let moviePage;
+    let peoplePage;
 
     beforeEach(() => {
       let store = mockStore(initialState);
 
-      moviePage = mount(
+      peoplePage = mount(
         <Provider store={store}>
-          <MoviePage />
+          <PeoplePage />
         </Provider>
       );
     });
 
     it('should display the search box', () => {
-      expect(moviePage.find('.tmdb-searchbox').length).toEqual(1);
+      expect(peoplePage.find('.tmdb-searchbox').length).toEqual(1);
     });
 
     it('should display the search options', () => {
-      expect(moviePage.find('.tmdb-searchoptions').length).toEqual(1);
+      expect(peoplePage.find('.tmdb-searchoptions').length).toEqual(1);
     });
   });
 
   describe('Component props', () => {
 
-    let moviePage;
+    let peoplePage;
 
     beforeEach(() => {
 
       let store = mockStore(initialState);
 
-      moviePage = mount(
+      peoplePage = mount(
         <Provider store={store}>
-          <MoviePage />
+          <PeoplePage />
         </Provider>
       );
     });
-
+    /*
     it('should have actions props', () => {
       expect(moviePage.find('MovieSearch').props().actions).toExist();
     });
+    */
   });
 
 });

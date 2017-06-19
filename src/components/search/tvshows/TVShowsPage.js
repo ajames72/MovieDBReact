@@ -1,6 +1,6 @@
 /**
- * @file TV Shows Page Component
- * @description Controller component for the TV Shows Search section
+ * @file Movie Page Component
+ * @description Controller component for the Movie Search section
  * @author Andrew James
  * @version 0.1
  */
@@ -9,7 +9,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import TVShowsSearch from './TVShowsSearch';
-import * as searchActions from '../../actions/SearchActions';
+import * as searchActions from '../../../actions/SearchActions';
+import {ROUTE_PATH_TVSHOWS} from '../../../RoutePaths';
 
 class TVShowsPage extends React.Component {
   constructor(props) {
@@ -17,16 +18,18 @@ class TVShowsPage extends React.Component {
   }
 }
 
-
 function mapStateToProps(state, ownProps) {
   return {
-
+    sectionTitle: "TV Shows Search",
+    path: ROUTE_PATH_TVSHOWS
   };
 }
 
 function matchDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(searchActions, dispatch)
+    searchAction: bindActionCreators(searchActions.tvShowSearch, dispatch),
+    clearSearchResults: bindActionCreators(searchActions.clearSearchResults, dispatch),
+    setSectionAttributes: bindActionCreators(searchActions.setSectionAttributes, dispatch)
   };
 }
 

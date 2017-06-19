@@ -9,7 +9,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import MovieSearch from './MovieSearch';
-import * as searchActions from '../../actions/SearchActions';
+import * as searchActions from '../../../actions/SearchActions';
+import {ROUTE_PATH_MOVIES} from '../../../RoutePaths';
 
 class MoviePage extends React.Component {
   constructor(props) {
@@ -19,13 +20,16 @@ class MoviePage extends React.Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-
+    sectionTitle: "Movie Search test",
+    path: ROUTE_PATH_MOVIES
   };
 }
 
 function matchDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(searchActions, dispatch)
+    searchAction: bindActionCreators(searchActions.movieSearch, dispatch),
+    clearSearchResults: bindActionCreators(searchActions.clearSearchResults, dispatch),
+    setSectionAttributes: bindActionCreators(searchActions.setSectionAttributes, dispatch)
   };
 }
 

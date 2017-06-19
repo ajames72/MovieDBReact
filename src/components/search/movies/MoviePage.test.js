@@ -4,10 +4,11 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import expect from 'expect';
 import { mount } from 'enzyme';
-import TVShowsPage from './TVShowsPage';
-import * as TestData from '../../../test/TestData';
+import MoviePage from './MoviePage';
+import * as TestData from '../../../../test/TestData';
 
-describe('TVShowsPage', () => {
+describe('MoviePage', () => {
+
   //Fake Store and Middleware
   const middlewares = [ thunk ];
   const mockStore = configureStore(middlewares);
@@ -17,50 +18,53 @@ describe('TVShowsPage', () => {
     config: TestData.tmdb_configuration,
     searchResults: {results: []},
     sectionAttributes: {
-      'section': "tvshows",
-      'title': "TV Show Search"
+      'section': "movies",
+      'title': "Movie Search"
     }
   };
 
-  describe('Component structure', () => {
-    let tvShowPage;
+  describe('Component Structure', () => {
+
+    let moviePage;
 
     beforeEach(() => {
       let store = mockStore(initialState);
 
-      tvShowPage = mount(
+      moviePage = mount(
         <Provider store={store}>
-          <TVShowsPage />
+          <MoviePage />
         </Provider>
       );
     });
 
     it('should display the search box', () => {
-      expect(tvShowPage.find('.tmdb-searchbox').length).toEqual(1);
+      expect(moviePage.find('.tmdb-searchbox').length).toEqual(1);
     });
 
-    it('shoud; display the search options', () => {
-      expect(tvShowPage.find('.tmdb-searchoptions').length).toEqual(1);
+    it('should display the search options', () => {
+      expect(moviePage.find('.tmdb-searchoptions').length).toEqual(1);
     });
-
-    /* @TODO - test results component */
   });
 
   describe('Component props', () => {
-    let tvShowPage;
+
+    let moviePage;
 
     beforeEach(() => {
+
       let store = mockStore(initialState);
 
-      tvShowPage = mount(
+      moviePage = mount(
         <Provider store={store}>
-          <TVShowsPage />
+          <MoviePage />
         </Provider>
       );
     });
-
+    /*
     it('should have actions props', () => {
-      expect(tvShowPage.find('TVShowsSearch').props().actions).toExist();
+      expect(moviePage.find('MovieSearch').props().actions).toExist();
     });
+    */
   });
+
 });
