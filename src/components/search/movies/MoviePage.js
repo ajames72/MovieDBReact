@@ -8,15 +8,11 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import MovieSearch from './MovieSearch';
+import SearchPage from '../SearchPage';
 import * as searchActions from '../../../actions/SearchActions';
 import {ROUTE_PATH_MOVIES} from '../../../RoutePaths';
 
-class MoviePage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-}
+const MoviePage = SearchPage();
 
 function mapStateToProps(state, ownProps) {
   return {
@@ -34,4 +30,4 @@ function matchDispatchToProps(dispatch) {
 }
 
 const connectedStateAndProps = connect(mapStateToProps, matchDispatchToProps);
-export default connectedStateAndProps(MovieSearch);
+export default connectedStateAndProps(MoviePage);
