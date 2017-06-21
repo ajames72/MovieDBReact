@@ -2,7 +2,7 @@ import React from 'react';
 import expect from 'expect';
 import { shallow, render, mount } from 'enzyme';
 import Movie from './Movie';
-import Poster from './Poster';
+import PosterThumbnail from './PosterThumbnail';
 
 describe('Movie', () => {
   describe('component structure', () => {
@@ -15,10 +15,10 @@ describe('Movie', () => {
       expect(movie.find('.tmdb-movie__image').length).toEqual(1);
     });
 
-    it('should contain a poster element', () => {
+    it('should contain a poster thumbnail element', () => {
       let movie = shallow(<Movie src={url} alt={altText} />);
-      
-      expect(movie.contains(<Poster src={url} alt={altText} />)).toEqual(true);
+
+      expect(movie.contains(<PosterThumbnail src={url} alt={altText} />)).toEqual(true);
     });
 
     describe('component props', () => {

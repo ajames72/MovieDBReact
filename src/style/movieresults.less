@@ -1,0 +1,68 @@
+/* Poster Sizes */
+@poster_padding_base: 5px;
+@poster_margin_base: 5px;
+@poster_width_base: 92px;
+/* based on a poster ratio of 13:20 */
+@poster_height_base: ((@poster_width_base / 13) * 20);
+
+/**
+ * Using BEM block block__element naming convention
+ */
+
+/* block */
+.tmdb-result {
+	display: block;
+	width: auto;
+	margin: 0 7%;
+}
+
+/* block */
+.tmdb-movie {
+
+  display: inline-block;
+
+  /* block__element */
+  > .tmdb-movie__image {
+    display: inline-block;
+    background-color: @posterBgColor;
+    width: @poster_width_base + (@poster_padding_base * 2);
+    height: @poster_height_base + (@poster_padding_base * 2);
+    padding: @poster_padding_base;
+    margin: @poster_margin_base;
+    border: 1px solid black;
+    overflow: hidden;
+
+    > img {
+      width: @poster_width_base - @poster_padding_base;
+      height: @poster_height_base - @poster_padding_base;
+      border: 1px solid black;
+    }
+  }
+
+	/* block__element */
+	> .tmdb-movie__title {
+		width: @poster_width_base + (@poster_padding_base * 2);
+		padding: 0 @poster_padding_base;
+		height: 50px;
+		overflow: hidden;
+		display: block;
+
+		.tmdb-movie__tooltip {
+			visibility: hidden;
+	    width: 120px;
+	    background-color: @off-white;
+	    color: @near-black;
+	    text-align: center;
+	    border-radius: 3px;
+	    padding: 5px 0;
+
+	    /* Position the tooltip */
+	    position: absolute;
+	    z-index: 1;
+		}
+	}
+
+	> .tmdb-movie__title:hover .tmdb-movie__tooltip {
+		visibility: visible;
+	}
+}

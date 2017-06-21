@@ -11,3 +11,10 @@
   -moz-border-radius: @r;
   border-radius: @r;
 }
+
+@poster_aspect_ratio: 1.48;
+
+.poster_dimension(@width) {
+  width: @width;
+  height: @width * @poster_aspect_ratio;
+}

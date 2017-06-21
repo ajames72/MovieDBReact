@@ -9,7 +9,9 @@ import React, {PropTypes} from 'react';
 
 const Poster = ({src, alt}) => {
   return (
-  <img src={src} alt={alt} />
+    <div className="tmdb-movie__poster">
+      <img src={src} alt={alt} />
+    </div>
   );
 };
 

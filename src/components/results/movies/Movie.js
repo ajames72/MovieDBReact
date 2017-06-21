@@ -1,11 +1,11 @@
 import React, {PropTypes} from 'react';
 
-import Poster from './Poster';
+import PosterThumbnail from './PosterThumbnail';
 
 const Movie = ({src, alt}) => {
   return (
     <div className="tmdb-movie__image">
-      <Poster src={src} alt={alt} />
+      <PosterThumbnail src={src} alt={alt} />
     </div>
   );
 };

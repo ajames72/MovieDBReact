@@ -8,6 +8,7 @@ import React, {PropTypes} from 'react';
 
 import Movie from './Movie';
 import MovieTitle from './MovieTitle';
+import Poster from './Poster';
 
 const MovieResults = ({searchResults, config}) => {
 
@@ -25,6 +26,7 @@ const MovieResults = ({searchResults, config}) => {
           )
         }
       </div>
+      <Poster src="" alt="placeholder" />
     </div>
   );
 };

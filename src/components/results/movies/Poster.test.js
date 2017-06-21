@@ -1,6 +1,6 @@
 import React from 'react';
 import expect from 'expect';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import Poster from './Poster';
 
 describe('Poster', () => {
@@ -18,13 +18,13 @@ describe('Poster', () => {
 
   describe('component props', () => {
     it('should have a src attribute', () => {
-      let poster = shallow(<Poster src={url} alt={altText} />);
+      let poster = mount(<Poster src={url} alt={altText} />);
 
       expect(poster.props().src).toEqual(url);
     });
 
     it('should have an alt text attribute', () => {
-      let poster = shallow(<Poster src={url} alt={altText} />);
+      let poster = mount(<Poster src={url} alt={altText} />);
 
       expect(poster.props().alt).toEqual(altText);
     });
