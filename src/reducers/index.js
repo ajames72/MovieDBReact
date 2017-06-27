@@ -4,6 +4,7 @@ import languages from './LanguageReducer';
 import countries from './CountryReducer';
 import searchResults from './SearchReducer';
 import sectionAttributes from './SectionAttributesReducer';
+import posterAttrs from './PosterReducer';
 
 /**
  * using ES6 shorthand property names
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   languages,
   countries,
   searchResults,
-  sectionAttributes
+  sectionAttributes,
+  posterAttrs
 });
 
 export default rootReducer;

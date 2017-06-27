@@ -32,7 +32,6 @@
   overflow: auto;
   background-color: rgba(@near-black-rgb, @near-black-rgb, @near-black-rgb, @poster-background-opacity);
   z-index: @z-index-poster;
-  display: none;
 
   img {
     margin: 0;
@@ -43,6 +42,23 @@
   }
 }
 
+.tmdb-movie__display-poster-enter {
+  opacity: 0;
+}
+
+.tmdb-movie__display-poster-enter.tmdb-movie__display-poster-enter-active {
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.tmdb-movie__display-poster-leave {
+  opacity: 1;
+}
+
+.tmdb-movie__display-poster-leave.tmdb-movie__display-poster-leave-active {
+  opacity: 0;
+  transition: opacity 1s;
+}
 
 @media all and (max-width: @screen-xs-max) {
   .tmdb-movie__poster {

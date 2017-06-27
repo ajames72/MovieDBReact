@@ -30,7 +30,12 @@ describe('Results', () => {
     const mockStore = configureStore(middlewares);
     const initialState = {
       searchResults,
-      config
+      config,
+      posterAttrs: {
+        src: '',
+        alt: ''
+      },
+      isHidden: true
     };
 
     it('should contain a MovieResults component', () => {
@@ -44,5 +49,11 @@ describe('Results', () => {
 
       expect(results.find('MovieResults').length).toEqual(1);
     });
+  });
+
+  describe('component props', () => {
+    /**
+     * @TODO: DO TESTS
+     */
   });
 });

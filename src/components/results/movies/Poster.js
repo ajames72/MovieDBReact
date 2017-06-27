@@ -7,9 +7,9 @@
 
 import React, {PropTypes} from 'react';
 
-const Poster = ({src, alt}) => {
+const Poster = ({src, alt, hideFullSizePoster}) => {
   return (
-    <div className="tmdb-movie__poster">
+    <div className="tmdb-movie__poster" onClick={hideFullSizePoster}>
       <img src={src} alt={alt} />
     </div>
   );
@@ -17,7 +17,8 @@ const Poster = ({src, alt}) => {
 
 Poster.propTypes = {
   src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired
+  alt: PropTypes.string.isRequired,
+  hideFullSizePoster: PropTypes.func.isRequired
 };
 
 export default Poster;
