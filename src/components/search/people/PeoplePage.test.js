@@ -45,26 +45,4 @@ describe('PeoplePage', () => {
       expect(peoplePage.find('.tmdb-searchoptions').length).toEqual(1);
     });
   });
-
-  describe('Component props', () => {
-
-    let peoplePage;
-
-    beforeEach(() => {
-
-      let store = mockStore(initialState);
-
-      peoplePage = mount(
-        <Provider store={store}>
-          <PeoplePage />
-        </Provider>
-      );
-    });
-    /*
-    it('should have actions props', () => {
-      expect(moviePage.find('MovieSearch').props().actions).toExist();
-    });
-    */
-  });
-
 });

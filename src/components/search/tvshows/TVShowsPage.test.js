@@ -45,26 +45,4 @@ describe('TVShowsPage', () => {
       expect(tvShowsPage.find('.tmdb-searchoptions').length).toEqual(1);
     });
   });
-
-  describe('Component props', () => {
-
-    let tvShowsPage;
-
-    beforeEach(() => {
-
-      let store = mockStore(initialState);
-
-      tvShowsPage = mount(
-        <Provider store={store}>
-          <TVShowsPage />
-        </Provider>
-      );
-    });
-    /*
-    it('should have actions props', () => {
-      expect(moviePage.find('MovieSearch').props().actions).toExist();
-    });
-    */
-  });
-
 });
