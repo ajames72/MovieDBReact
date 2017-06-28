@@ -53,7 +53,9 @@ describe('Results', () => {
 
   describe('component props', () => {
     /**
-     * @TODO: DO TESTS
+     * Cannot test controller Connected Props
+     * https://github.com/reactjs/react-redux/issues/325
+     * https://github.com/reactjs/redux/issues/1534
      */
   });
 });

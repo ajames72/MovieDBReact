@@ -1,6 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow, mount } from 'enzyme';
+import sinon from 'sinon';
 import Poster from './Poster';
 
 describe('Poster', () => {
@@ -9,30 +10,35 @@ describe('Poster', () => {
   const altText = 'image alt text';
   const noop = () => {
 
-  }
+  };
 
   describe('component structure', () => {
     it('should contain an image element', () => {
-      let poster = shallow(<Poster src={url} alt={altText} hideFullSizePoster={noop} />);
+      const poster = shallow(<Poster src={url} alt={altText} hideFullSizePoster={noop} />);
 
       expect(poster.find('img').length).toEqual(1);
     });
 
-    /**
-     * @TODO: Test Click event
-     */
+    it('should call function to hide poster', () => {
+
+      const hideFullSizePoster = sinon.spy();
+      const poster = mount(<Poster src={url} alt={altText} hideFullSizePoster={hideFullSizePoster} />);
+
+      poster.find('.tmdb-movie__poster').at(0).simulate('click');
+
+      expect(hideFullSizePoster.calledOnce).toBeTruthy();
+    });
   });
 
   describe('component props', () => {
-    it('should have a src attribute', () => {
-      let poster = mount(<Poster src={url} alt={altText} hideFullSizePoster={noop} />);
 
+    const poster = mount(<Poster src={url} alt={altText} hideFullSizePoster={noop} />);
+
+    it('should have a src attribute', () => {
       expect(poster.props().src).toEqual(url);
     });
 
     it('should have an alt text attribute', () => {
-      let poster = mount(<Poster src={url} alt={altText} hideFullSizePoster={noop} />);
-
       expect(poster.props().alt).toEqual(altText);
     });
   });
