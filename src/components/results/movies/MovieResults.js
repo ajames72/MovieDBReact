@@ -26,11 +26,18 @@ const MovieResults = ({searchResults, config, isHidden, showFullSizePoster, setP
   return (
     <div className="row">
       <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        {
-          searchResults.results.map((result, index) =>
-            <div key={index} className="tmdb-movie" onClick={click}>
-              <Movie src={path + result.poster_path} alt={result.original_title}/>
-              <MovieTitle title={result.original_title} />
+        {searchResults.results.length > 0 ?
+          (
+            searchResults.results.map((result, index) =>
+              <div key={index} className="tmdb-movie" onClick={click}>
+                <Movie src={path + result.poster_path} alt={result.original_title}/>
+                <MovieTitle title={result.original_title} />
+              </div>
+            )
+          ) :
+          (
+            <div>
+              <h3>Your search returned no results</h3>
             </div>
           )
         }
