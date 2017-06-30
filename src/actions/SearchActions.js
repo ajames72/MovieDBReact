@@ -1,6 +1,17 @@
 import * as types from './ActionTypes';
 import * as rest from '../client/Client';
 
+function getPosterAndTitle(response, posterField, titleField) {
+  return response.results.reduce((filteredResults, currentResult, index) => {
+    filteredResults[index] = {
+      poster_path: currentResult[posterField],
+      original_title: currentResult[titleField]
+    };
+
+    return filteredResults;
+  }, []);
+}
+
 export function loadTMDBApiConfiguration() {
   //Thunk - returns a function instead of an action
   return function dispatchTMDBApiConfiguration(dispatch) {
@@ -53,6 +64,7 @@ export function movieSearch(params) {
   return function dispatchMovieSearch(dispatch) {
     return rest.searchMovies(params).then((response) => {
       //Filter the data and keep only what we need in the store
+      /*
       let searchResults = response.results.reduce((filteredResults, currentResult, index) => {
         filteredResults[index] = {
           poster_path: currentResult['poster_path'],
@@ -61,6 +73,8 @@ export function movieSearch(params) {
 
         return filteredResults;
       }, []);
+      */
+      let searchResults = getPosterAndTitle(response, 'poster_path', 'original_title');
 
       dispatch(movieSearchSuccess(Object.assign({}, {results: searchResults})));
     }, (error) => {
@@ -78,6 +92,7 @@ export function movieSearchSuccess(results) {
 export function peopleSearch(params) {
   return function dispatchPeopleSearch(dispatch) {
     return rest.searchPeople(params).then((response) => {
+      /*
       let searchResults = response.results.reduce((filteredResults, currentResult, index) => {
         filteredResults[index] = {
           poster_path: currentResult['profile_path'],
@@ -86,6 +101,9 @@ export function peopleSearch(params) {
 
         return filteredResults;
       }, []);
+      */
+
+      let searchResults = getPosterAndTitle(response, 'profile_path', 'name');
 
       dispatch(peopleSearchSuccess(Object.assign({}, {results: searchResults})));
     }, (error) => {
@@ -103,6 +121,7 @@ export function peopleSearchSuccess(results) {
 export function tvShowSearch(params) {
   return function dispatchTVShowSearch(dispatch) {
     return rest.searchTVShows(params).then((response) => {
+      /*
       let searchResults = response.results.reduce((filteredResults, currentResult, index) => {
         filteredResults[index] = {
           poster_path: currentResult['poster_path'],
@@ -111,6 +130,9 @@ export function tvShowSearch(params) {
 
         return filteredResults;
       }, []);
+      */
+
+      let searchResults = getPosterAndTitle(response, 'poster_path', 'original_name');
 
       dispatch(tvShowSearchSuccess(Object.assign({}, {results: searchResults})));
     }, (error) => {
@@ -122,6 +144,24 @@ export function tvShowSearch(params) {
 export function tvShowSearchSuccess(results) {
   return {
     type: types.SEARCH_TVSHOWS, results
+  };
+}
+
+export function collectionSearch(params) {
+  return function dispatchCollectionSearch(dispatch) {
+    return rest.searchCollections(params).then((response) => {
+      let searchResults = getPosterAndTitle(response, 'poster_path', 'name');
+
+      dispatch(collectionSearchSuccess(Object.assign({}, {results: searchResults})));
+    }, (error) => {
+
+    });
+  };
+}
+
+export function collectionSearchSuccess(results) {
+  return {
+    type: types.SEARCH_COLLECTIONS, results
   };
 }
 

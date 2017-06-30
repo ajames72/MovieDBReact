@@ -21,7 +21,7 @@ describe('NavBar', () => {
     it('should have 5 menu items', () => {
       const navBar = mount(<NavBar sectionAttributes={attributes} />);
 
-      expect(navBar.find('li').length).toBe(5);
+      expect(navBar.find('li').length).toBe(4);
     });
 
     it('should display an active menu item', () => {

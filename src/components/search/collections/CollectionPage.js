@@ -1,6 +1,6 @@
 /**
- * @file Movie Page Component
- * @description Controller component for the Movie Search section
+ * @file Collection Page Component
+ * @description Controller component for the Collection Search section
  * @author Andrew James
  * @version 0.1
  */
@@ -10,24 +10,24 @@ import {bindActionCreators} from 'redux';
 
 import SearchPage from '../SearchPage';
 import * as searchActions from '../../../actions/SearchActions';
-import {ROUTE_PATH_MOVIES} from '../../../RoutePaths';
+import {ROUTE_PATH_COLLECTIONS} from '../../../RoutePaths';
 
-const MoviePage = SearchPage();
+const CollectionPage = SearchPage();
 
 function mapStateToProps(state, ownProps) {
   return {
-    sectionTitle: "Movie Search",
-    path: ROUTE_PATH_MOVIES
+    sectionTitle: "Collection Search",
+    path: ROUTE_PATH_COLLECTIONS
   };
 }
 
 function matchDispatchToProps(dispatch) {
   return {
-    searchAction: bindActionCreators(searchActions.movieSearch, dispatch),
+    searchAction: bindActionCreators(searchActions.collectionSearch, dispatch),
     clearSearchResults: bindActionCreators(searchActions.clearSearchResults, dispatch),
     setSectionAttributes: bindActionCreators(searchActions.setSectionAttributes, dispatch)
   };
 }
 
 const connectedStateAndProps = connect(mapStateToProps, matchDispatchToProps);
-export default connectedStateAndProps(MoviePage);
+export default connectedStateAndProps(CollectionPage);

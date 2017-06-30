@@ -896,6 +896,39 @@ export const collection_search_results = {
   "total_results": 7
 }
 
+export const collection_search_action_results = {
+  "results": [
+    {
+      "original_title": "Star Wars: Clone Wars Collection",
+      "poster_path": "/tylT76rQXmOub1UPAjNZ1mJswSe.jpg"
+    },
+    {
+      "original_title": "Lego Star Wars Collection",
+      "poster_path": "/xRzsoQmCP0rUy4R8cF5QSgy4VDR.jpg"
+    },
+    {
+      "original_title": "Star Wars Collection",
+      "poster_path": "/mEpQbsUSekbQRdffXMeQWjeHb34.jpg"
+    },
+    {
+      "original_title": "Turkish Star Wars",
+      "poster_path": null
+    },
+    {
+      "original_title": "Robot Chicken: Star Wars Collection",
+      "poster_path": "/p3Zc72CqZJveY3psC7aCuaMUI9W.jpg"
+    },
+    {
+      "original_title": "Star Wars: The Ewok Adventures Collection",
+      "poster_path": "/iY9Smj4RQB1ey8QB0JcMtV35uc1.jpg"
+    },
+    {
+      "original_title": "Family Guy Presents Collection",
+      "poster_path": "/pijDBPc3OiPwshTCt3UQFIVjpE4.jpg"
+    }
+  ]
+}
+
 export const companies_search_results = {
   "page": 1,
   "results": [

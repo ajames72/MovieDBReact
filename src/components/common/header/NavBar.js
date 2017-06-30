@@ -27,12 +27,6 @@ const NavBar = ({sectionAttributes}) => {
             (<NavBarItem link="collections" label="Collections" />)
           }
           {
-            sectionAttributes.section === 'companies' ?
-            (<NavBarItem link="companies" label="Companies" active />)
-            :
-            (<NavBarItem link="companies" label="Companies" />)
-          }
-          {
             sectionAttributes.section === path.ROUTE_PATH_PEOPLE ?
             (<NavBarItem link={path.ROUTE_PATH_PEOPLE} label="People" active />)
             :

@@ -38,7 +38,7 @@ describe('Header component', () => {
     });
 
     it('should have links', () => {
-      expect(header.find('Link').length).toBe(5);
+      expect(header.find('Link').length).toBe(4);
     });
 
     it('should have a selected menu item', () => {

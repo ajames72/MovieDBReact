@@ -23,6 +23,16 @@ describe('SearchReducer', () => {
     expect(SearchReducer(initialState, action)).toEqual(TestData.people_search_action_results);
   });
 
+  it('should create results when passed SEARCH_TVSHOWS action', () => {
+    const action = SearchActions.tvShowSearchSuccess(TestData.tvshows_search_action_results);
+    expect(SearchReducer(initialState, action)).toEqual(TestData.tvshows_search_action_results);
+  });
+
+  it('should create results when passed SEARCH_COLLECTIONS action', () => {
+    const action = SearchActions.peopleSearchSuccess(TestData.collection_search_action_results);
+    expect(SearchReducer(initialState, action)).toEqual(TestData.collection_search_action_results);
+  });
+
   it('should clear the search results when passed CLEAR_SEARCH_RESULTS action', () => {
     const results = {
       results: []

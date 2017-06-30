@@ -164,7 +164,7 @@ describe('Search TMDB API', () => {
         .get('/3/search/person?api_key=123456&query=Search%20Term&include_adult=true&language=aa&region=AS&year=1999&primary_release_year=2000')
         .reply(200, mockResponse);
 
-        it('should return a response for the movie API', () => {
+        it('should return a response for the person API', () => {
           rest.searchPeople(mockQuery).then((response) => {
             expect(response).toEqual(mockResponse);
           }).catch((error) => {
@@ -180,13 +180,31 @@ describe('Search TMDB API', () => {
         .get('/3/search/tv?api_key=123456&query=Search%20Term&include_adult=true&language=aa&region=AS&year=1999&primary_release_year=2000')
         .reply(200, mockResponse);
 
-        it('should return a response for the movie API', () => {
+        it('should return a response for the tv API', () => {
           rest.searchTVShows(mockQuery).then((response) => {
             expect(response).toEqual(mockResponse);
           }).catch((error) => {
 
           });
         });
+    });
+
+    describe('search Collection API', () => {
+      nock.disableNetConnect();
+
+      let scope = nock('http://localhost')
+
+      .get('/3/search/collection?api_key=123456&query=Search%20Term&include_adult=true&language=aa&region=AS&year=1999&primary_release_year=2000')
+      .reply(200, mockResponse);
+
+      it('should return a response for the collection API', () => {
+        rest.searchCollections(mockQuery).then((response) => {
+          expect(response).toEqual(mockResponse);
+        }).catch((error) => {
+
+        });
+      });
+
     });
   });
 });

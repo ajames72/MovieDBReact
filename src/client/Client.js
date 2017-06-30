@@ -196,6 +196,15 @@ export function searchTVShows(params) {
 
 /**
  * @description -
+ * @param {object} params
+ * @returns {object} - JSON response from the Collection Search API
+ */
+export function searchCollections(params) {
+  return searchTMDB(Config.getCollectionSearchAPI(), params);
+}
+
+/**
+ * @description -
  * @returns {object} - JSON response from the TMDB Configuration API
  */
 export function getTMDBApiConfiguration() {

@@ -52,6 +52,17 @@ const Config = {
     };
   },
   /**
+   * @description - configuration for the /search/collection API resource
+   * @param none
+   * @returns {object} - the URL and HTTP Request Method
+   */
+  getCollectionSearchAPI: function getCollectionSearchAPI() {
+    return {
+      url: environment.endpoints.COLLECTION_SEARCH_API + API_KEY,
+      method: "GET"
+    };
+  },
+  /**
    * @description - configuration for the /configuration API resource
    * @param none
    * @returns {object} - the URL and HTTP Request Method

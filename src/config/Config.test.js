@@ -32,6 +32,15 @@ describe('The RESTful API Config', function() {
     expect(Config.getTVShowSearchAPI().method).toEqual('GET');
   });
 
+  it('should get the Collection Search RESTful API', function() {
+    expect(Config.getCollectionSearchAPI().url)
+      .toEqual(`${environment.endpoints.COLLECTION_SEARCH_API}df3908a9e93ea4fa095429a46c0eec66`);
+  });
+
+  it('should use the GET method for the Collection Search RESTful API', function() {
+    expect(Config.getCollectionSearchAPI().method).toEqual('GET');
+  });
+
   it('should get the configuration RESTful API', function() {
     expect(Config.getTMDBApiConfiguration().url)
       .toEqual(`${environment.endpoints.TMDB_CONFIGURATION_API}df3908a9e93ea4fa095429a46c0eec66`);
