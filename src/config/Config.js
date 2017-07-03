@@ -4,7 +4,7 @@
  * @author Andrew James
  * @version 0.1
  */
-
+/*eslint-disable import/default*/
 import environment from '../environments/environment';
 
 "use strict";

@@ -1,4 +1,4 @@
-//var Config = require('./Config.js');
+/*eslint-disable import/default*/
 import Config from './Config';
 import expect from 'expect';
 import environment from '../environments/environment';
