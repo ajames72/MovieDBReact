@@ -1,2 +1,4 @@
 
 node_modules/whatwg-fetch/package.json
+dist/bundle.js
+dist/index.html

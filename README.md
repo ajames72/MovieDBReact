@@ -5,6 +5,14 @@ Search The Movie DB (TMDb): The user should be able to enter some text into a se
 
 This application is being developed using Webpack, React, React-Router, Redux, Redux Thunks.
 
+### Running Development Server
+
+Navigate to the project directory root and run _(npm start -s)_
+
+### Producing the production build
+
+Navigate to the project directory root and run _(npm run build)_
+
 _(Further details are pending)_
 
 ## Documentation
