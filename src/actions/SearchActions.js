@@ -18,6 +18,8 @@ export function loadTMDBApiConfiguration() {
     //Thunk body
     return rest.getTMDBApiConfiguration().then((response) => {
       dispatch(loadTMDBApiConfigurationSuccess(response));
+    }, (error) => {
+      
     });
   };
 }
@@ -64,18 +66,7 @@ export function movieSearch(params) {
   return function dispatchMovieSearch(dispatch) {
     return rest.searchMovies(params).then((response) => {
       //Filter the data and keep only what we need in the store
-      /*
-      let searchResults = response.results.reduce((filteredResults, currentResult, index) => {
-        filteredResults[index] = {
-          poster_path: currentResult['poster_path'],
-          original_title: currentResult['original_title']
-        };
-
-        return filteredResults;
-      }, []);
-      */
       let searchResults = getPosterAndTitle(response, 'poster_path', 'original_title');
-
       dispatch(movieSearchSuccess(Object.assign({}, {results: searchResults})));
     }, (error) => {
 
@@ -92,19 +83,7 @@ export function movieSearchSuccess(results) {
 export function peopleSearch(params) {
   return function dispatchPeopleSearch(dispatch) {
     return rest.searchPeople(params).then((response) => {
-      /*
-      let searchResults = response.results.reduce((filteredResults, currentResult, index) => {
-        filteredResults[index] = {
-          poster_path: currentResult['profile_path'],
-          original_title: currentResult['name']
-        };
-
-        return filteredResults;
-      }, []);
-      */
-
       let searchResults = getPosterAndTitle(response, 'profile_path', 'name');
-
       dispatch(peopleSearchSuccess(Object.assign({}, {results: searchResults})));
     }, (error) => {
 
@@ -121,19 +100,7 @@ export function peopleSearchSuccess(results) {
 export function tvShowSearch(params) {
   return function dispatchTVShowSearch(dispatch) {
     return rest.searchTVShows(params).then((response) => {
-      /*
-      let searchResults = response.results.reduce((filteredResults, currentResult, index) => {
-        filteredResults[index] = {
-          poster_path: currentResult['poster_path'],
-          original_title: currentResult['original_name']
-        };
-
-        return filteredResults;
-      }, []);
-      */
-
       let searchResults = getPosterAndTitle(response, 'poster_path', 'original_name');
-
       dispatch(tvShowSearchSuccess(Object.assign({}, {results: searchResults})));
     }, (error) => {
 
@@ -151,7 +118,6 @@ export function collectionSearch(params) {
   return function dispatchCollectionSearch(dispatch) {
     return rest.searchCollections(params).then((response) => {
       let searchResults = getPosterAndTitle(response, 'poster_path', 'name');
-
       dispatch(collectionSearchSuccess(Object.assign({}, {results: searchResults})));
     }, (error) => {
 

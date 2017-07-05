@@ -6,12 +6,7 @@ import * as types from './ActionTypes';
 import * as SearchActions from './SearchActions';
 import {TestException} from '../../test/Test';
 import * as TestData from '../../test/TestData';
-/*
-function TestException(message) {
-   this.message = message;
-   this.name = 'TestException';
-}
-*/
+
 describe('SearchActions', () => {
 
   nock.disableNetConnect();
@@ -204,7 +199,7 @@ describe('SearchActions', () => {
       type: types.GET_TMDB_CONFIGURATION, config: TestData.tmdb_configuration
     };
 
-    let scope = nock('https://localhost')
+    let scope = nock('http://localhost')
       .get('/3/configuration?api_key=df3908a9e93ea4fa095429a46c0eec66')
       .reply(200, TestData.tmdb_configuration);
 
@@ -213,7 +208,6 @@ describe('SearchActions', () => {
         const actions = store.getActions();
         expect(actions[6]).toEqual(expectedAction);
       }, (error) => {
-        //@TODO: test for error
         throw new TestException('configuration error');
       });
     });
