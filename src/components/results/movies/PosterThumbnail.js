@@ -5,6 +5,11 @@
  * @version 0.1
  */
 
+//----------------------------------------------//
+// This is not really a useful component        //
+// but keeping incase I decide to do something  //
+// else with it in the future                   //
+//----------------------------------------------//
 import React, {PropTypes} from 'react';
 
 const PosterThumbnail = ({src, alt}) => {

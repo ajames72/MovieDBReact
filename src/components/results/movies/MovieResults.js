@@ -7,52 +7,65 @@
 import React, {PropTypes} from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
 
-import Movie from './Movie';
-import MovieTitle from './MovieTitle';
+import MovieResult from './MovieResult';
 import Poster from './Poster';
 
-const MovieResults = ({searchResults, config, isHidden, showFullSizePoster, setPoster, posterAttrs}) => {
+class MovieResults extends React.Component {
+  constructor(props) {
+    super(props);
 
-  const path = config.images.base_url + config.images.poster_sizes[0];
-  const animTime = 1000;
-
-  const {src, alt} = posterAttrs;
-
-  function click(event) {
-    setPoster({'src': event.target.src, 'alt': event.target.alt});
-    showFullSizePoster();
+    this.click = this.click.bind(this);
   }
 
-  return (
-    <div className="row">
-      <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        {searchResults.results.length > 0 ?
-          (
-            searchResults.results.map((result, index) =>
-              <div key={index} className="tmdb-movie" onClick={click}>
-                <Movie src={path + result.poster_path} alt={result.original_title}/>
-                <MovieTitle title={result.original_title} />
+  click(event) {
+    this.props.setPoster({'src': event.target.src, 'alt': event.target.alt});
+    this.props.showFullSizePoster();
+  }
+
+  render() {
+
+    const {searchResults, config, isHidden, posterAttrs, showFullSizePoster} = this.props;
+    const {src, alt} = posterAttrs;
+    const path = config.images.base_url + config.images.poster_sizes[0];
+    const animTime = 1000;
+
+    //------------------------------------------------//
+    // Put the result into its own component  //
+    // https://medium.freecodecamp.org/react-pattern-extract-child-components-to-avoid-binding-e3ad8310725e  //
+    //------------------------------------------------//
+    return (
+      <div className="row">
+        <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          {searchResults.results.length > 0 ?
+            (
+              searchResults.results.map((result, index) =>
+                <MovieResult
+                  key={index}
+                  path={path + result.poster_path}
+                  title={result.original_title}
+                  onclick={this.click}
+                  />
+              )
+            ) :
+            (
+              <div>
+                <h3>Your search returned no results</h3>
               </div>
             )
-          ) :
-          (
-            <div>
-              <h3>Your search returned no results</h3>
-            </div>
-          )
-        }
+          }
+        </div>
+        <CSSTransitionGroup
+          transitionName="tmdb-movie__display-poster"
+          transitionEnterTimeout={animTime}
+          transitionLeaveTimeout={animTime}>
+          {!isHidden &&
+            <Poster src={src} alt={alt} hideFullSizePoster={showFullSizePoster} />
+          }
+        </CSSTransitionGroup>
       </div>
-      <CSSTransitionGroup
-        transitionName="tmdb-movie__display-poster"
-        transitionEnterTimeout={animTime}
-        transitionLeaveTimeout={animTime}>
-        {!isHidden &&
-          <Poster src={src} alt={alt} hideFullSizePoster={showFullSizePoster} />
-        }
-      </CSSTransitionGroup>
-    </div>
-  );
-};
+    );
+  }
+}
 
 MovieResults.defaultProps = {
   posterAttrs: {
