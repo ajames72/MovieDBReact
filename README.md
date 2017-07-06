@@ -19,6 +19,10 @@ _(Further details are pending)_
 
 _(Documentation is pending)_
 
+#### Language & Country data
+
+The Language and Country data are both pulled from a data source hosted by [frictionlessdata](http://frictionlessdata.io)
+
 ### Notes
 
 #### Having problems with findWhere & filterWhere.
