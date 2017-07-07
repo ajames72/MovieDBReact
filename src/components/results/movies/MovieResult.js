@@ -16,7 +16,7 @@ const MovieResult = ({path, title, onclick}) => {
       <MovieTitle title={title} />
     </div>
   );
-}
+};
 
 MovieResult.propTypes = {
   path: PropTypes.string.isRequired,
